@@ -1608,33 +1608,52 @@ login.innerHTML=
 
 
 // ==========================
-// v3.7.3 驗證控制
+// 驗證控制
 // ==========================
 
-let percent = 0;
+
+let percent=0;
+
 
 
 function updateProgress(value){
 
-percent = value;
 
-verifyBar.style.width = value + "%";
+percent=value;
 
-verifyPercent.innerHTML = value + "%";
+
+verifyBar.style.width=value+"%";
+
+
+verifyBar.innerHTML=value+"%";
+
+
+}
+
+
+
+
+
+
+function updateList(a,b,c){
+
+
+verifyList.innerHTML=`
+
+<div>${a}</div>
+
+<div>${b}</div>
+
+<div>${c}</div>
+
+`;
 
 }
 
 
 
-function updateList(items){
 
-verifyList.innerHTML = items.map(item=>{
 
-return `<div>${item}</div>`;
-
-}).join("");
-
-}
 
 
 
@@ -1646,23 +1665,24 @@ setTimeout(()=>{
 verifyArea.style.display="block";
 
 
-updateList([
+updateList(
 
-"🔄 ARMY 身分驗證中",
+"🔄 ARMY 身分確認中",
 
 "⬜ 生日資料確認",
 
 "⬜ 禮物資格確認"
 
-]);
+);
 
 
-updateProgress(25);
+updateProgress(20);
+
 
 
 verifyText.innerHTML=
 
-"正在驗證使用者資料...";
+"正在分析使用者資料...";
 
 
 },10000);
@@ -1673,29 +1693,62 @@ verifyText.innerHTML=
 
 
 
+
+
+setTimeout(()=>{
+
+
+updateProgress(45);
+
+
+updateList(
+
+"🔄 ARMY 身分確認中",
+
+"⬜ 生日資料確認",
+
+"⬜ 禮物資格確認"
+
+);
+
+
+},13000);
+
+
+
+
+
+
+
+
+
+// 彩蛋
+
+
 setTimeout(()=>{
 
 
 updateProgress(55);
 
 
-updateList([
-
-"✅ ARMY 身分確認",
-
-"🔄 生日資料驗證中",
-
-"⬜ 禮物資格確認"
-
-]);
-
-
 verifyText.innerHTML=
 
-"生日資料比對中...";
+`
+⚠️ 驗證異常
+
+<br><br>
+
+偵測到特殊生日資料
+
+<br>
+
+正在重新同步...
+`;
 
 
-},15000);
+
+},16000);
+
 
 
 
@@ -1707,26 +1760,55 @@ verifyText.innerHTML=
 setTimeout(()=>{
 
 
-updateProgress(75);
+updateProgress(70);
 
 
-updateList([
+updateList(
 
 "✅ ARMY 身分確認",
 
-"✅ 生日資料確認",
+"🔄 生日資料確認中",
 
-"🔄 禮物資格分析中"
+"⬜ 禮物資格確認"
 
-]);
+);
+
 
 
 verifyText.innerHTML=
 
-"正在確認禮物資格...";
+"資料重新建立中...";
 
 
-},20000);
+},19000);
+
+
+
+
+
+
+
+
+
+setTimeout(()=>{
+
+
+updateProgress(85);
+
+
+updateList(
+
+"✅ ARMY 身分確認",
+
+"🔄 生日資料確認中",
+
+"🔄 禮物資格分析中"
+
+);
+
+
+},22000);
+
 
 
 
@@ -1741,7 +1823,8 @@ setTimeout(()=>{
 updateProgress(100);
 
 
-updateList([
+
+updateList(
 
 "✅ ARMY 身分確認",
 
@@ -1749,13 +1832,28 @@ updateList([
 
 "✅ 禮物資格確認"
 
-]);
+);
 
 
-verifyText.innerHTML="";
+
+verifyText.innerHTML=
+
+"💜 SYSTEM ANALYSIS COMPLETE";
 
 
 },26000);
+
+
+
+
+
+
+
+
+
+// ==========================
+// 提醒
+// ==========================
 
 
 setTimeout(()=>{
@@ -1933,7 +2031,7 @@ secretText.innerHTML=
 
 <br><br>
 
-LEVEL 99 ACCESS
+處理中....
 
 <br>
 
