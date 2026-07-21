@@ -9,7 +9,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 
-<title>BTS REPORT SYSTEM v3.0</title>
+<title>BTS REPORT SYSTEM v3.1</title>
 
 
 <style>
@@ -22,22 +22,17 @@ box-sizing:border-box;
 }
 
 
+html,body{
 
-html{
+margin:0;
 
-height:100%;
+min-height:100%;
 
 }
 
 
 
 body{
-
-
-margin:0;
-
-min-height:100vh;
-
 
 background:
 
@@ -52,14 +47,14 @@ font-family:"Microsoft JhengHei",sans-serif;
 
 overflow-x:hidden;
 
-
 overflow-y:auto;
-
 
 
 display:flex;
 
+
 justify-content:center;
+
 
 align-items:flex-start;
 
@@ -72,8 +67,8 @@ padding-top:5vh;
 
 
 
-/* 星空 */
 
+/* 星空 */
 
 .star{
 
@@ -103,6 +98,7 @@ z-index:0;
 
 
 
+
 @keyframes twinkle{
 
 
@@ -127,7 +123,8 @@ transform:scale(2);
 
 
 
-/* 啟動畫面 */
+
+/* 載入畫面 */
 
 
 #loadingScreen{
@@ -203,10 +200,10 @@ color:#e9d5ff;
 .loading-bar{
 
 
-width:260px;
+width:280px;
 
 
-height:18px;
+height:20px;
 
 
 background:#2e1065;
@@ -255,8 +252,11 @@ transition:1s;
 
 
 
-/* 主卡片 */
 
+
+
+
+/* 主畫面 */
 
 .box{
 
@@ -267,7 +267,7 @@ position:relative;
 z-index:2;
 
 
-width:94%;
+width:96%;
 
 
 max-width:760px;
@@ -275,7 +275,7 @@ max-width:760px;
 
 background:
 
-rgba(20,8,35,.93);
+rgba(20,8,35,.94);
 
 
 padding:30px;
@@ -296,7 +296,6 @@ margin-bottom:40px;
 
 
 }
-
 
 
 
@@ -330,10 +329,11 @@ text-shadow:
 border-top:1px solid #a855f7;
 
 
-margin:25px 0;
+margin:22px 0;
 
 
 }
+
 
 
 
@@ -346,6 +346,9 @@ font-size:19px;
 
 
 color:#e9d5ff;
+
+
+line-height:1.8;
 
 
 }
@@ -373,8 +376,10 @@ margin:20px 0;
 
 
 
-
 .progress{
+
+
+height:30px;
 
 
 width:0%;
@@ -396,13 +401,11 @@ linear-gradient(
 text-align:center;
 
 
-padding:5px;
-
-
 transition:2s;
 
 
 }
+
 
 
 
@@ -417,7 +420,7 @@ display:none;
 text-align:center;
 
 
-font-size:24px;
+font-size:22px;
 
 
 color:#fde68a;
@@ -447,26 +450,6 @@ opacity:.2;
 
 
 
-.gift{
-
-
-display:none;
-
-
-text-align:center;
-
-
-font-size:25px;
-
-
-color:#f5d0fe;
-
-
-}
-
-
-
-
 
 .claim{
 
@@ -477,10 +460,28 @@ display:none;
 text-align:center;
 
 
-height:220px;
+height:230px;
 
 
 }
+
+
+
+
+.notice{
+
+
+font-size:22px;
+
+
+font-weight:bold;
+
+
+color:#f9a8d4;
+
+
+}
+
 
 
 
@@ -537,20 +538,6 @@ z-index:999;
 
 
 
-.notice{
-
-
-font-size:20px;
-
-
-font-weight:bold;
-
-
-color:#f9a8d4;
-
-
-}
-
 
 
 
@@ -563,7 +550,7 @@ display:none;
 text-align:center;
 
 
-font-size:18px;
+font-size:17px;
 
 
 line-height:1.9;
@@ -576,6 +563,7 @@ animation:fadein 1.5s;
 
 
 }
+
 
 
 
@@ -598,10 +586,12 @@ opacity:1;
 
 transform:scale(1);
 
+
 }
 
 
 }
+
 
 
 
@@ -626,8 +616,10 @@ text-shadow:
 
 
 
-@media(max-width:600px){
 
+
+
+@media(max-width:600px){
 
 
 .box{
@@ -662,20 +654,16 @@ font-size:18px;
 }
 
 
-
 .reward-page{
 
 
-font-size:17px;
+font-size:16px;
 
 
 }
 
 
-
 }
-
-
 
 </style>
 
@@ -683,47 +671,29 @@ font-size:17px;
 
 
 <body>
-
-
-
-<!-- 星空 -->
-
-<script>
-
+  <script>
 
 for(let i=0;i<90;i++){
 
+let star=document.createElement("div");
 
-let s=document.createElement("div");
+star.className="star";
 
+star.style.left=Math.random()*100+"%";
 
-s.className="star";
+star.style.top=Math.random()*100+"%";
 
+star.style.animationDelay=Math.random()*3+"s";
 
-s.style.left=Math.random()*100+"%";
-
-
-s.style.top=Math.random()*100+"%";
-
-
-s.style.animationDelay=Math.random()*3+"s";
-
-
-document.body.appendChild(s);
-
+document.body.appendChild(star);
 
 }
-
-
 
 </script>
 
 
 
-
-
-<!-- 啟動畫面 -->
-
+<!-- 系統載入 -->
 
 <div id="loadingScreen">
 
@@ -735,7 +705,6 @@ document.body.appendChild(s);
 </div>
 
 
-
 <div class="loading-text" id="loadingText">
 
 正在建立安全連線...
@@ -743,20 +712,17 @@ document.body.appendChild(s);
 </div>
 
 
-
 <div class="loading-bar">
-
 
 <div class="loading-progress" id="loadingBar">
 
 </div>
 
-
 </div>
 
 
-
 </div>
+
 
 
 
@@ -765,26 +731,39 @@ document.body.appendChild(s);
 <div class="box" id="mainBox">
 
 
+
 <div id="systemPage">
 
 
 <div class="title">
 
-🎵 BTS REPORT SYSTEM v3.0
+🎵 BTS REPORT SYSTEM v3.1
 
 </div>
+
 
 
 <div class="line"></div>
+
+
+
+
+
 <div class="system" id="login">
 
 
-🔐 正在登入 BTS 系統...<br><br>
+🔐 正在登入 BTS 系統...
 
-正在進行身份驗證...
+
+<br><br>
+
+
+等待系統回應...
+
 
 
 </div>
+
 
 
 
@@ -796,9 +775,17 @@ document.body.appendChild(s);
 <br>
 
 
-✅ ARMY 身分確認<br>
+✅ ARMY 身分確認
 
-✅ 生日壽星確認<br>
+
+<br>
+
+
+✅ 生日壽星確認
+
+
+<br>
+
 
 ✅ 禮物領取資格確認
 
@@ -807,7 +794,8 @@ document.body.appendChild(s);
 <br><br>
 
 
-正在載入禮物資訊...
+📊 禮物資料分析中...
+
 
 
 <div class="progress-box">
@@ -823,26 +811,6 @@ document.body.appendChild(s);
 
 
 </div>
-
-
-</div>
-
-
-
-
-
-
-
-<div class="gift" id="gift">
-
-
-🎉 系統通知：
-
-
-<br><br>
-
-
-你已符合禮物領取資格 💜
 
 
 
@@ -867,6 +835,7 @@ document.body.appendChild(s);
 正在確認配送資訊...
 
 
+
 </div>
 
 
@@ -875,9 +844,8 @@ document.body.appendChild(s);
 
 
 
-
-
 <div class="claim" id="claim">
+
 
 
 <div class="line"></div>
@@ -892,27 +860,20 @@ document.body.appendChild(s);
 
 
 
-
 <div class="notice" id="notice">
 
 
 請點擊按鈕領取你的禮物 💜
 
 
-
 </div>
-
-
-<br>
 
 
 
 <button id="claimBtn" onclick="tryClaim()">
 
 
-
 🎁 領取我的禮物
-
 
 
 </button>
@@ -925,19 +886,20 @@ document.body.appendChild(s);
 
 
 
-
 </div>
 
 
 
 
 
-<!-- 第二幕 -->
 
+
+
+
+<!-- 禮物揭曉頁 -->
 
 
 <div class="reward-page" id="rewardPage">
-
 
 
 <div class="success">
@@ -946,14 +908,12 @@ document.body.appendChild(s);
 💜 禮物領取成功 💜
 
 
-
 </div>
 
 
 
 
 <div class="line"></div>
-
 
 
 
@@ -965,13 +925,11 @@ document.body.appendChild(s);
 
 
 
-
 🎤 BTS 演唱會阿米棒組合
 
 
 
 <br>
-
 
 
 
@@ -983,9 +941,7 @@ document.body.appendChild(s);
 
 
 
-
 🧸 愛心娃娃 × 1
-
 
 
 
@@ -993,9 +949,7 @@ document.body.appendChild(s);
 
 
 
-
 <div class="line"></div>
-
 
 
 
@@ -1004,7 +958,6 @@ document.body.appendChild(s);
 
 
 <br><br>
-
 
 
 有騙到你嗎？
@@ -1030,13 +983,11 @@ BTS 的阿米棒真的有夠難搶！！！！！
 
 
 
-
 我整個 6 月幾乎每天都在搶你的阿米棒，真的超級難搶！
 
 
 
 <br><br>
-
 
 
 
@@ -1051,13 +1002,11 @@ BTS 的阿米棒真的有夠難搶！！！！！
 
 
 
-
 原本想說等全部到齊再一起送給你，
 
 
 
 <br>
-
 
 
 結果跟我家幽默討論後，他一直說：
@@ -1113,9 +1062,7 @@ BTS 的阿米棒真的有夠難搶！！！！！
 <h2 style="color:#f0abfc;">
 
 
-
 🎂 生日快樂！！🥳
-
 
 
 </h2>
@@ -1126,17 +1073,13 @@ BTS 的阿米棒真的有夠難搶！！！！！
 雖然是遲來的生日禮物，
 
 
-
 <br><br>
-
 
 
 但希望你收到的時候，
 
 
-
 <br>
-
 
 
 還是可以感受到滿滿的心意。
@@ -1146,27 +1089,20 @@ BTS 的阿米棒真的有夠難搶！！！！！
 <br><br>
 
 
-
-
 希望你會喜歡，
 
 
-
 <br>
-
 
 
 也希望我們一起期待阿米棒到貨的那一天！💜
 
 
 
-
 <br><br>
 
 
-
 Borahae 💜
-
 
 
 
@@ -1174,22 +1110,21 @@ Borahae 💜
 <script>
 
 
-// ===== QR載入動畫 =====
+// =====================
+// 電影式載入動畫
+// =====================
 
 
 setTimeout(function(){
 
-
-document.getElementById("loadingBar").style.width="40%";
-
+document.getElementById("loadingBar").style.width="25%";
 
 document.getElementById("loadingText").innerHTML=
 
-"正在驗證 ARMY 身分...";
+"正在建立安全連線...";
 
 
-},800);
-
+},1000);
 
 
 
@@ -1197,18 +1132,14 @@ document.getElementById("loadingText").innerHTML=
 
 setTimeout(function(){
 
-
-document.getElementById("loadingBar").style.width="80%";
-
+document.getElementById("loadingBar").style.width="45%";
 
 document.getElementById("loadingText").innerHTML=
 
-"正在載入生日禮物資料...";
+"🔐 正在掃描 ARMY 身分...";
 
 
-},1600);
-
-
+},2500);
 
 
 
@@ -1217,16 +1148,46 @@ document.getElementById("loadingText").innerHTML=
 
 setTimeout(function(){
 
+document.getElementById("loadingBar").style.width="70%";
+
+document.getElementById("loadingText").innerHTML=
+
+"🎂 正在確認生日資料...";
+
+
+},4000);
+
+
+
+
+
+
+setTimeout(function(){
+
+document.getElementById("loadingBar").style.width="90%";
+
+document.getElementById("loadingText").innerHTML=
+
+"🎁 正在準備神秘禮物...";
+
+
+},5200);
+
+
+
+
+
+
+setTimeout(function(){
 
 document.getElementById("loadingBar").style.width="100%";
-
 
 document.getElementById("loadingText").innerHTML=
 
 "✨ SYSTEM READY ✨";
 
 
-},2300);
+},6500);
 
 
 
@@ -1236,11 +1197,10 @@ document.getElementById("loadingText").innerHTML=
 
 setTimeout(function(){
 
-
 document.getElementById("loadingScreen").style.display="none";
 
 
-},3200);
+},7500);
 
 
 
@@ -1248,10 +1208,9 @@ document.getElementById("loadingScreen").style.display="none";
 
 
 
-
-// ===== 登入流程 =====
-
-
+// =====================
+// BTS 系統流程
+// =====================
 
 
 setTimeout(function(){
@@ -1265,8 +1224,7 @@ document.getElementById("login").innerHTML=
 document.getElementById("check").style.display="block";
 
 
-
-},4500);
+},8500);
 
 
 
@@ -1285,7 +1243,7 @@ document.getElementById("bar").style.width="30%";
 document.getElementById("bar").innerHTML="30%";
 
 
-},5500);
+},9500);
 
 
 
@@ -1304,7 +1262,7 @@ document.getElementById("bar").style.width="60%";
 document.getElementById("bar").innerHTML="60%";
 
 
-},7500);
+},11000);
 
 
 
@@ -1323,27 +1281,7 @@ document.getElementById("bar").style.width="100%";
 document.getElementById("bar").innerHTML="100%";
 
 
-},9500);
-
-
-
-
-
-
-
-
-// 顯示資格
-
-
-setTimeout(function(){
-
-
-document.getElementById("gift").style.display="block";
-
-
-},11000);
-
-
+},13000);
 
 
 
@@ -1353,14 +1291,13 @@ document.getElementById("gift").style.display="block";
 
 // 系統提醒
 
-
 setTimeout(function(){
 
 
 document.getElementById("warning").style.display="block";
 
 
-},12500);
+},14500);
 
 
 
@@ -1369,8 +1306,7 @@ document.getElementById("warning").style.display="block";
 
 
 
-// 顯示領取按鈕
-
+// 顯示按鈕
 
 setTimeout(function(){
 
@@ -1381,7 +1317,7 @@ document.getElementById("warning").style.display="none";
 document.getElementById("claim").style.display="block";
 
 
-},20500);
+},22000);
 
 
 
@@ -1391,26 +1327,19 @@ document.getElementById("claim").style.display="block";
 
 
 
-
-
-// ===== 調皮按鈕 =====
-
+// =====================
+// 禮物逃跑
+// =====================
 
 
 let clickCount=0;
 
 
 
-
-
-
-
 function tryClaim(){
 
 
-
 clickCount++;
-
 
 
 let btn=document.getElementById("claimBtn");
@@ -1423,8 +1352,8 @@ let notice=document.getElementById("notice");
 
 
 
-if(clickCount==1){
 
+if(clickCount==1){
 
 
 notice.innerHTML=
@@ -1456,14 +1385,13 @@ btn.style.rotate="10deg";
 
 
 
-else if(clickCount==2){
 
+else if(clickCount==2){
 
 
 notice.innerHTML=
 
 "😆 差一點！<br><br>禮物又溜走了！";
-
 
 
 notice.style.fontSize="30px";
@@ -1494,7 +1422,6 @@ btn.style.rotate="-10deg";
 else{
 
 
-
 document.getElementById("systemPage").style.display="none";
 
 
@@ -1504,21 +1431,16 @@ document.getElementById("rewardPage").style.display="block";
 window.scrollTo(0,0);
 
 
-
 }
 
 
 
 }
-
 
 
 </script>
 
 
-
-
 </body>
-
 
 </html>
