@@ -5,120 +5,265 @@
 
 <meta charset="UTF-8">
 
-<title>BTS REPORT SYSTEM v1.0</title>
+<title>BTS REPORT SYSTEM v2.0</title>
 
 
 <style>
 
+* {
+    box-sizing:border-box;
+}
+
+
 body {
 
-background:#090014;
+margin:0;
+min-height:100vh;
+
+background:
+radial-gradient(circle at top,#4c1d95,#090014 70%);
+
 color:white;
+
 font-family:"Microsoft JhengHei",sans-serif;
+
 display:flex;
+
 justify-content:center;
-padding:30px;
+
+align-items:center;
+
+overflow-x:hidden;
 
 }
+
+
+/* 星空 */
+
+.star {
+
+position:fixed;
+
+width:3px;
+
+height:3px;
+
+background:#fff;
+
+border-radius:50%;
+
+animation:twinkle 2s infinite;
+
+opacity:.8;
+
+}
+
+
+@keyframes twinkle {
+
+0%,100% {
+
+opacity:.2;
+
+transform:scale(1);
+
+}
+
+
+50% {
+
+opacity:1;
+
+transform:scale(2);
+
+}
+
+}
+
 
 
 .box {
 
-max-width:700px;
-width:100%;
-background:#170b24;
-border-radius:20px;
-padding:30px;
-box-shadow:0 0 30px #8b5cf6;
+position:relative;
+
+z-index:2;
+
+max-width:720px;
+
+width:90%;
+
+background:rgba(23,11,36,.9);
+
+border-radius:25px;
+
+padding:35px;
+
+box-shadow:
+
+0 0 30px #a855f7,
+
+0 0 60px #7e22ce;
 
 }
+
 
 
 .title {
 
 text-align:center;
-font-size:28px;
-color:#e9d5ff;
+
+font-size:30px;
+
+color:#f0abfc;
+
+text-shadow:0 0 15px #c084fc;
 
 }
 
-
-.system {
-
-color:#d8b4fe;
-
-}
 
 
 .line {
 
-border-top:1px solid #9333ea;
+border-top:1px solid #a855f7;
+
 margin:25px 0;
 
 }
 
 
+
+.system {
+
+color:#e9d5ff;
+
+font-size:18px;
+
+}
+
+
+
 .progress-box {
 
-background:#333;
+background:#2e1065;
+
 border-radius:20px;
+
 overflow:hidden;
+
 margin:20px 0;
 
 }
 
 
+
 .progress {
 
 width:0%;
-background:#a855f7;
+
+background:linear-gradient(
+90deg,
+#9333ea,
+#f0abfc
+);
+
 text-align:center;
+
 transition:2s;
 
+padding:5px;
+
 }
+
 
 
 .gift {
 
 display:none;
+
 text-align:center;
+
 font-size:24px;
-color:#f0abfc;
+
+color:#f5d0fe;
 
 }
 
-
-.final {
-
-display:none;
-color:#f9a8d4;
-
-}
 
 
 .warning {
 
 display:none;
+
 text-align:center;
+
 color:#fde68a;
-font-size:20px;
-animation:blink 0.8s infinite;
+
+font-size:21px;
+
+animation:blink .8s infinite;
 
 }
+
 
 
 @keyframes blink {
 
-0% {opacity:1;}
-50% {opacity:0.2;}
-100% {opacity:1;}
+50% {
+
+opacity:.2;
+
+}
 
 }
 
 
-.reveal {
+
+.claim-area {
 
 display:none;
+
+text-align:center;
+
+}
+
+
+
+button {
+
+background:#a855f7;
+
+color:white;
+
+border:none;
+
+padding:15px 35px;
+
+font-size:20px;
+
+border-radius:30px;
+
+cursor:pointer;
+
+box-shadow:0 0 20px #c084fc;
+
+}
+
+
+
+button:hover {
+
+transform:scale(1.05);
+
+}
+
+
+.reward {
+
+display:none;
+
+color:#f9a8d4;
+
+font-size:18px;
 
 }
 
@@ -126,10 +271,32 @@ display:none;
 
 </style>
 
+
 </head>
 
 
 <body>
+
+
+<script>
+
+for(let i=0;i<80;i++){
+
+let star=document.createElement("div");
+
+star.className="star";
+
+star.style.left=Math.random()*100+"%";
+
+star.style.top=Math.random()*100+"%";
+
+star.style.animationDelay=Math.random()*3+"s";
+
+document.body.appendChild(star);
+
+}
+
+</script>
 
 
 <div class="box">
@@ -137,20 +304,17 @@ display:none;
 
 <div class="title">
 
-🎵 BTS REPORT SYSTEM v1.0
+🎵 BTS REPORT SYSTEM v2.0
 
 </div>
 
 
 <div class="line"></div>
-
-
-
 <div class="system" id="login">
 
-🔐 正在登入系統...<br><br>
+🔐 正在登入 BTS 系統...<br><br>
 
-身份驗證中...
+正在進行身份驗證...
 
 </div>
 
@@ -189,6 +353,7 @@ display:none;
 
 
 
+
 <div class="gift" id="gift">
 
 
@@ -201,7 +366,10 @@ display:none;
 
 
 
+
+
 <div class="warning" id="warning">
+
 
 ⚠️ 系統提醒...<br><br>
 
@@ -213,21 +381,82 @@ display:none;
 
 
 
-<div class="final" id="final">
-</html>
-    <div class="reveal" id="reveal">
+
+
+
+<div class="claim-area" id="claim">
 
 
 <div class="line"></div>
 
 
-等等……
+🎁 禮物領取通知
 
 
 <br><br>
 
 
-有騙到你嗎？🤣<br>
+請點擊下方按鈕<br>
+
+確認領取你的生日禮物
+
+
+<br><br>
+
+
+<button onclick="showReward()">
+
+🎁 點擊領取禮物
+
+</button>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="reward" id="reward">
+
+
+<div class="line"></div>
+
+
+
+💜 恭喜你獲得：
+
+
+<br><br>
+
+
+🎤 BTS 演唱會阿米棒組合
+
+
+<br>
+
+✨ 阿米棒坐檯＋造型更換組合
+
+
+<br>
+
+🧸 愛心娃娃 × 1
+
+
+
+<br><br>
+
+
+等等……🤣
+
+
+<br><br>
+
+
+有騙到你嗎？
+
 
 是不是有那麼一瞬間真的相信了？哈哈哈！
 
@@ -243,22 +472,20 @@ BTS 的阿米棒真的有夠難搶！！！！！
 
 我整個 6 月幾乎每天都在搶你的阿米棒，真的超級難搶！
 
+<br><br>
+
+
+最後終於買到了，但目前還不知道什麼時候會收到。
+
 
 <br><br>
 
 
-最後終於買到了，<br>
+原本想說等全部到齊再一起送給你，
 
-但目前還不知道什麼時候會收到。
-
-
-<br><br>
-
-
-原本想說等全部到齊再一起送給你，<br>
+<br>
 
 結果跟我家幽默討論後，他一直說：
-
 
 <br><br>
 
@@ -275,10 +502,7 @@ BTS 的阿米棒真的有夠難搶！！！！！
 <br><br>
 
 
-等阿米棒到貨之後，<br>
-
-我再補給你，
-
+等阿米棒到貨之後，我再補給你，
 
 <br><br>
 
@@ -304,52 +528,40 @@ BTS 的阿米棒真的有夠難搶！！！！！
 </h2>
 
 
-
 雖然是遲來的生日禮物，
-
 
 <br><br>
 
-
 但希望你收到的時候，
 
-
 <br>
-
 
 還是可以感受到滿滿的心意。
 
 
 <br><br>
 
-
 希望你會喜歡，
 
-
 <br>
-
 
 也希望我們一起期待阿米棒到貨的那一天！💜
 
 
 <br><br>
 
-
 Borahae 💜
 
 
 
 </div>
-
-
 </div>
-
 
 
 <script>
 
 
-// 登入
+// 登入成功
 
 setTimeout(function(){
 
@@ -364,7 +576,8 @@ document.getElementById("check").style.display="block";
 
 
 
-// 進度30%
+
+// 進度 30%
 
 setTimeout(function(){
 
@@ -377,7 +590,8 @@ document.getElementById("bar").innerHTML="30%";
 
 
 
-// 進度60%
+
+// 進度 60%
 
 setTimeout(function(){
 
@@ -390,7 +604,8 @@ document.getElementById("bar").innerHTML="60%";
 
 
 
-// 進度100%
+
+// 進度 100%
 
 setTimeout(function(){
 
@@ -403,7 +618,9 @@ document.getElementById("bar").innerHTML="100%";
 
 
 
-// 禮物出現
+
+
+// 顯示第一層禮物提示
 
 setTimeout(function(){
 
@@ -414,7 +631,9 @@ document.getElementById("gift").style.display="block";
 
 
 
-// 系統提醒閃爍
+
+
+// 系統提醒
 
 setTimeout(function(){
 
@@ -425,22 +644,42 @@ document.getElementById("warning").style.display="block";
 
 
 
-// 8秒後系統提醒消失，揭曉
+
+
+// 系統提醒閃爍約8秒後
 
 setTimeout(function(){
 
 document.getElementById("warning").style.display="none";
 
-document.getElementById("final").style.display="block";
 
-document.getElementById("reveal").style.display="block";
+document.getElementById("claim").style.display="block";
 
 
 },18500);
 
 
 
+
+
+
+// 點擊領取後
+
+function showReward(){
+
+
+document.getElementById("claim").style.display="none";
+
+
+document.getElementById("reward").style.display="block";
+
+
+}
+
+
+
 </script>
+
 
 
 </div>
