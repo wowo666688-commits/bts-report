@@ -398,9 +398,30 @@ color:#f9a8d4;
 
 .verify-list div{
 
-
 transition:.5s;
 
+animation:verifyIn .5s;
+
+}
+
+
+@keyframes verifyIn{
+
+from{
+
+opacity:0;
+
+transform:translateX(-10px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:translateX(0);
+
+}
 
 }
 
@@ -1652,9 +1673,9 @@ updateList([
 
 "🔄 ARMY 身分驗證中",
 
-"🔄 生日資料確認",
+"⬜ 生日資料確認",
 
-"🔄 禮物資格確認"
+"⬜ 禮物資格確認"
 
 ]);
 
@@ -1687,7 +1708,7 @@ updateList([
 
 "🔄 生日資料驗證中",
 
-"🔄 禮物資格確認"
+"⬜ 禮物資格確認"
 
 ]);
 
