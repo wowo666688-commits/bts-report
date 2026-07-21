@@ -1059,16 +1059,12 @@ document.body.appendChild(star);
 
 <div class="progress-box">
 
-
-<div class="progress" id="verifyBar">
-
-
-0%
-
+    <div class="progress" id="verifyBar"></div>
 
 </div>
 
-
+<div class="progress-number" id="verifyPercent">
+    0%
 </div>
 
 
@@ -1617,16 +1613,15 @@ let percent = 0;
 
 function updateProgress(value){
 
-percent = value;
+    percent = value;
 
-verifyBar.style.width = value + "%";
+    document.getElementById("verifyBar").style.width = value + "%";
 
-verifyBar.innerHTML = value + "%";
+    document.getElementById("verifyBar").innerHTML = "";
 
-verifyPercent.innerHTML = value + "%";
+    document.getElementById("verifyPercent").innerHTML = value + "%";
 
 }
-
 
 
 function updateList(items){
