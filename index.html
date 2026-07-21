@@ -9,7 +9,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 
-<title>BTS REPORT SYSTEM v3.1</title>
+<title>BTS REPORT SYSTEM v3.2</title>
 
 
 <style>
@@ -20,6 +20,7 @@
 box-sizing:border-box;
 
 }
+
 
 
 html,body{
@@ -34,6 +35,7 @@ min-height:100%;
 
 body{
 
+
 background:
 
 radial-gradient(circle at top,#8b5cf6,#090014 80%);
@@ -46,6 +48,7 @@ font-family:"Microsoft JhengHei",sans-serif;
 
 
 overflow-x:hidden;
+
 
 overflow-y:auto;
 
@@ -68,7 +71,9 @@ padding-top:5vh;
 
 
 
+
 /* 星空 */
+
 
 .star{
 
@@ -98,7 +103,6 @@ z-index:0;
 
 
 
-
 @keyframes twinkle{
 
 
@@ -124,7 +128,9 @@ transform:scale(2);
 
 
 
-/* 載入畫面 */
+
+
+/* 啟動畫面 */
 
 
 #loadingScreen{
@@ -166,7 +172,7 @@ text-align:center;
 .loading-title{
 
 
-font-size:32px;
+font-size:34px;
 
 
 color:#f0abfc;
@@ -174,7 +180,7 @@ color:#f0abfc;
 
 text-shadow:
 
-0 0 20px #c084fc;
+0 0 25px #c084fc;
 
 
 }
@@ -200,7 +206,7 @@ color:#e9d5ff;
 .loading-bar{
 
 
-width:280px;
+width:300px;
 
 
 height:20px;
@@ -219,6 +225,7 @@ margin-top:20px;
 
 
 }
+
 
 
 
@@ -254,9 +261,8 @@ transition:1s;
 
 
 
+/* 主卡片 */
 
-
-/* 主畫面 */
 
 .box{
 
@@ -289,6 +295,7 @@ box-shadow:
 
 0 0 35px #c084fc,
 
+
 0 0 80px #7e22ce;
 
 
@@ -298,6 +305,12 @@ margin-bottom:40px;
 }
 
 
+
+
+
+
+
+/* 系統標題 */
 
 
 .title{
@@ -322,6 +335,48 @@ text-shadow:
 
 
 
+.status{
+
+
+position:absolute;
+
+
+right:25px;
+
+
+top:20px;
+
+
+font-size:14px;
+
+
+color:#86efac;
+
+
+animation:blink 1.5s infinite;
+
+
+}
+
+
+
+
+@keyframes blink{
+
+
+50%{
+
+opacity:.3;
+
+}
+
+
+}
+
+
+
+
+
 
 .line{
 
@@ -338,20 +393,20 @@ margin:22px 0;
 
 
 
-
 .system{
 
 
 font-size:19px;
 
 
+line-height:1.9;
+
+
 color:#e9d5ff;
 
 
-line-height:1.8;
-
-
 }
+
 
 
 
@@ -373,6 +428,8 @@ margin:20px 0;
 
 
 }
+
+
 
 
 
@@ -411,6 +468,7 @@ transition:2s;
 
 
 
+
 .warning{
 
 
@@ -433,21 +491,6 @@ animation:blink .8s infinite;
 
 
 
-@keyframes blink{
-
-
-50%{
-
-opacity:.2;
-
-}
-
-
-}
-
-
-
-
 
 
 
@@ -460,10 +503,12 @@ display:none;
 text-align:center;
 
 
-height:230px;
+height:250px;
 
 
 }
+
+
 
 
 
@@ -540,7 +585,6 @@ z-index:999;
 
 
 
-
 .reward-page{
 
 
@@ -568,6 +612,7 @@ animation:fadein 1.5s;
 
 
 
+
 @keyframes fadein{
 
 
@@ -577,8 +622,8 @@ opacity:0;
 
 transform:scale(.7);
 
-}
 
+}
 
 to{
 
@@ -591,7 +636,6 @@ transform:scale(1);
 
 
 }
-
 
 
 
@@ -618,54 +662,46 @@ text-shadow:
 
 
 
-
 @media(max-width:600px){
 
 
 .box{
 
-
 width:96%;
-
 
 padding:25px;
 
-
 }
-
 
 
 .title{
 
-
 font-size:25px;
-
 
 }
 
 
-
 .system{
 
-
 font-size:18px;
-
 
 }
 
 
 .reward-page{
 
-
 font-size:16px;
 
+}
+
+
 
 }
 
 
-}
 
 </style>
+
 
 </head>
 
@@ -673,55 +709,81 @@ font-size:16px;
 <body>
   <script>
 
+
+// 星空生成
+
 for(let i=0;i<90;i++){
+
 
 let star=document.createElement("div");
 
+
 star.className="star";
+
 
 star.style.left=Math.random()*100+"%";
 
+
 star.style.top=Math.random()*100+"%";
+
 
 star.style.animationDelay=Math.random()*3+"s";
 
+
 document.body.appendChild(star);
 
+
 }
+
 
 </script>
 
 
 
-<!-- 系統載入 -->
+
+
+
+<!-- 啟動畫面 -->
+
 
 <div id="loadingScreen">
 
 
 <div class="loading-title">
 
+
 💜 BTS REPORT SYSTEM 💜
 
+
 </div>
+
 
 
 <div class="loading-text" id="loadingText">
 
+
 正在建立安全連線...
 
+
 </div>
+
+
 
 
 <div class="loading-bar">
 
+
 <div class="loading-progress" id="loadingBar">
 
-</div>
 
 </div>
 
 
 </div>
+
+
+</div>
+
 
 
 
@@ -731,19 +793,31 @@ document.body.appendChild(star);
 <div class="box" id="mainBox">
 
 
-
 <div id="systemPage">
+
+
+<div class="status">
+
+
+🟢 SYSTEM ONLINE
+
+
+</div>
+
 
 
 <div class="title">
 
-🎵 BTS REPORT SYSTEM v3.1
+
+🎵 BTS REPORT SYSTEM v3.2
+
 
 </div>
 
 
 
 <div class="line"></div>
+
 
 
 
@@ -761,8 +835,9 @@ document.body.appendChild(star);
 等待系統回應...
 
 
-
 </div>
+
+
 
 
 
@@ -775,26 +850,37 @@ document.body.appendChild(star);
 <br>
 
 
-✅ ARMY 身分確認
+<span id="armyCheck">
 
+🔐 身分驗證中...
 
-<br>
-
-
-✅ 生日壽星確認
-
-
-<br>
-
-
-✅ 禮物領取資格確認
-
+</span>
 
 
 <br><br>
 
 
-📊 禮物資料分析中...
+<span id="birthdayCheck">
+
+🎂 生日資料驗證中...
+
+</span>
+
+
+<br><br>
+
+
+<span id="giftCheck">
+
+🎁 禮物資格檢查中...
+
+</span>
+
+
+
+
+
+<br><br>
 
 
 
@@ -814,6 +900,7 @@ document.body.appendChild(star);
 
 
 
+
 </div>
 
 
@@ -829,11 +916,10 @@ document.body.appendChild(star);
 ⚠️ 系統提醒...<br><br>
 
 
-請稍後……<br><br>
+阿米棒目前仍在待出貨中<br><br>
 
 
-正在確認配送資訊...
-
+請耐心等候配送中……
 
 
 </div>
@@ -845,7 +931,6 @@ document.body.appendChild(star);
 
 
 <div class="claim" id="claim">
-
 
 
 <div class="line"></div>
@@ -860,6 +945,7 @@ document.body.appendChild(star);
 
 
 
+
 <div class="notice" id="notice">
 
 
@@ -870,10 +956,13 @@ document.body.appendChild(star);
 
 
 
+
 <button id="claimBtn" onclick="tryClaim()">
 
 
+
 🎁 領取我的禮物
+
 
 
 </button>
@@ -886,6 +975,7 @@ document.body.appendChild(star);
 
 
 
+
 </div>
 
 
@@ -896,10 +986,12 @@ document.body.appendChild(star);
 
 
 
-<!-- 禮物揭曉頁 -->
+<!-- 禮物揭曉 -->
+
 
 
 <div class="reward-page" id="rewardPage">
+
 
 
 <div class="success">
@@ -912,8 +1004,8 @@ document.body.appendChild(star);
 
 
 
-
 <div class="line"></div>
+
 
 
 
@@ -932,7 +1024,6 @@ document.body.appendChild(star);
 <br>
 
 
-
 ✨ 阿米棒坐檯＋造型更換組合
 
 
@@ -940,12 +1031,12 @@ document.body.appendChild(star);
 <br>
 
 
-
 🧸 愛心娃娃 × 1
 
 
 
 <br><br>
+
 
 
 
@@ -1069,7 +1160,6 @@ BTS 的阿米棒真的有夠難搶！！！！！
 
 
 
-
 雖然是遲來的生日禮物，
 
 
@@ -1110,94 +1200,68 @@ Borahae 💜
 <script>
 
 
-// =====================
-// 電影式載入動畫
-// =====================
+// =============================
+// 電影式啟動
+// =============================
 
 
-setTimeout(function(){
+setTimeout(()=>{
 
-document.getElementById("loadingBar").style.width="25%";
 
-document.getElementById("loadingText").innerHTML=
+loadingBar.style.width="20%";
+
+
+loadingText.innerHTML=
 
 "正在建立安全連線...";
 
 
-},1000);
+},1500);
 
 
 
 
-
-setTimeout(function(){
-
-document.getElementById("loadingBar").style.width="45%";
-
-document.getElementById("loadingText").innerHTML=
-
-"🔐 正在掃描 ARMY 身分...";
+setTimeout(()=>{
 
 
-},2500);
+loadingBar.style.width="40%";
 
 
+loadingText.innerHTML=
+
+"🔐 正在連接 ARMY 資料庫...";
 
 
-
-
-setTimeout(function(){
-
-document.getElementById("loadingBar").style.width="70%";
-
-document.getElementById("loadingText").innerHTML=
-
-"🎂 正在確認生日資料...";
-
-
-},4000);
+},3500);
 
 
 
 
+setTimeout(()=>{
 
 
-setTimeout(function(){
+loadingBar.style.width="65%";
 
-document.getElementById("loadingBar").style.width="90%";
 
-document.getElementById("loadingText").innerHTML=
+loadingText.innerHTML=
+
+"🎂 正在分析生日資訊...";
+
+
+},5500);
+
+
+
+
+setTimeout(()=>{
+
+
+loadingBar.style.width="85%";
+
+
+loadingText.innerHTML=
 
 "🎁 正在準備神秘禮物...";
-
-
-},5200);
-
-
-
-
-
-
-setTimeout(function(){
-
-document.getElementById("loadingBar").style.width="100%";
-
-document.getElementById("loadingText").innerHTML=
-
-"✨ SYSTEM READY ✨";
-
-
-},6500);
-
-
-
-
-
-
-
-setTimeout(function(){
-
-document.getElementById("loadingScreen").style.display="none";
 
 
 },7500);
@@ -1205,42 +1269,15 @@ document.getElementById("loadingScreen").style.display="none";
 
 
 
+setTimeout(()=>{
 
 
-
-// =====================
-// BTS 系統流程
-// =====================
+loadingBar.style.width="100%";
 
 
-setTimeout(function(){
+loadingText.innerHTML=
 
-
-document.getElementById("login").innerHTML=
-
-"🔐 身分驗證成功...";
-
-
-document.getElementById("check").style.display="block";
-
-
-},8500);
-
-
-
-
-
-
-
-// 30%
-
-setTimeout(function(){
-
-
-document.getElementById("bar").style.width="30%";
-
-
-document.getElementById("bar").innerHTML="30%";
+"✨ SYSTEM READY ✨";
 
 
 },9500);
@@ -1250,16 +1287,10 @@ document.getElementById("bar").innerHTML="30%";
 
 
 
-
-// 60%
-
-setTimeout(function(){
+setTimeout(()=>{
 
 
-document.getElementById("bar").style.width="60%";
-
-
-document.getElementById("bar").innerHTML="60%";
+loadingScreen.style.display="none";
 
 
 },11000);
@@ -1270,31 +1301,36 @@ document.getElementById("bar").innerHTML="60%";
 
 
 
-// 100%
-
-setTimeout(function(){
-
-
-document.getElementById("bar").style.width="100%";
-
-
-document.getElementById("bar").innerHTML="100%";
-
-
-},13000);
+// =============================
+// 真實驗證流程
+// =============================
 
 
 
+setTimeout(()=>{
+
+
+login.innerHTML=
+
+"🔐 正在登入 BTS 系統...<br><br>等待系統回應...";
+
+
+},11500);
 
 
 
 
-// 系統提醒
-
-setTimeout(function(){
 
 
-document.getElementById("warning").style.display="block";
+setTimeout(()=>{
+
+
+login.innerHTML=
+
+"🔐 身分驗證中...<br><br>正在分析資料";
+
+
+check.style.display="block";
 
 
 },14500);
@@ -1305,16 +1341,46 @@ document.getElementById("warning").style.display="block";
 
 
 
-
-// 顯示按鈕
-
-setTimeout(function(){
+// ARMY確認
 
 
-document.getElementById("warning").style.display="none";
+setTimeout(()=>{
 
 
-document.getElementById("claim").style.display="block";
+armyCheck.innerHTML=
+
+"✅ ARMY 身分確認";
+
+
+},17500);
+
+
+
+
+
+
+
+// 生日確認
+
+
+setTimeout(()=>{
+
+
+birthdayCheck.innerHTML=
+
+"🎂 生日資料驗證中...";
+
+
+},19500);
+
+
+
+setTimeout(()=>{
+
+
+birthdayCheck.innerHTML=
+
+"✅ 生日壽星確認";
 
 
 },22000);
@@ -1325,11 +1391,84 @@ document.getElementById("claim").style.display="block";
 
 
 
+// 禮物確認
 
 
-// =====================
-// 禮物逃跑
-// =====================
+setTimeout(()=>{
+
+
+giftCheck.innerHTML=
+
+"🎁 禮物資格檢查中...";
+
+
+},24000);
+
+
+
+
+setTimeout(()=>{
+
+
+giftCheck.innerHTML=
+
+"✅ 禮物領取資格確認";
+
+
+bar.style.width="100%";
+
+
+bar.innerHTML="100%";
+
+
+},27000);
+
+
+
+
+
+
+
+// 系統提醒
+
+
+setTimeout(()=>{
+
+
+warning.style.display="block";
+
+
+},28500);
+
+
+
+
+
+
+
+// 領取按鈕
+
+
+setTimeout(()=>{
+
+
+claim.style.display="block";
+
+
+},34000);
+
+
+
+
+
+
+
+
+
+// =============================
+// 按鈕逃跑
+// =============================
+
 
 
 let clickCount=0;
@@ -1342,6 +1481,7 @@ function tryClaim(){
 clickCount++;
 
 
+
 let btn=document.getElementById("claimBtn");
 
 
@@ -1351,21 +1491,12 @@ let notice=document.getElementById("notice");
 
 
 
-
-
-if(clickCount==1){
+if(clickCount===1){
 
 
 notice.innerHTML=
 
-"🤣 禮物跑掉啦！<br><br>請再試一次！";
-
-
-notice.style.fontSize="30px";
-
-
-notice.style.color="#facc15";
-
+"⚠️ ERROR<br><br>禮物重新定位中...<br><br>🤣 禮物跑掉啦！";
 
 
 btn.style.left="15%";
@@ -1374,31 +1505,17 @@ btn.style.left="15%";
 btn.style.top="15%";
 
 
-btn.style.rotate="10deg";
-
-
-
 }
 
 
 
+else if(clickCount===2){
 
-
-
-
-else if(clickCount==2){
 
 
 notice.innerHTML=
 
-"😆 差一點！<br><br>禮物又溜走了！";
-
-
-notice.style.fontSize="30px";
-
-
-notice.style.color="#facc15";
-
+"⚠️ WARNING<br><br>偵測到禮物移動...<br><br>😆 又溜走了！";
 
 
 btn.style.left="80%";
@@ -1407,13 +1524,7 @@ btn.style.left="80%";
 btn.style.top="80%";
 
 
-btn.style.rotate="-10deg";
-
-
-
 }
-
-
 
 
 
@@ -1422,20 +1533,34 @@ btn.style.rotate="-10deg";
 else{
 
 
-document.getElementById("systemPage").style.display="none";
+notice.innerHTML=
+
+"🎁 開啟禮物資料中...<br><br>3<br><br>2<br><br>1";
 
 
-document.getElementById("rewardPage").style.display="block";
+
+setTimeout(()=>{
+
+
+systemPage.style.display="none";
+
+
+rewardPage.style.display="block";
 
 
 window.scrollTo(0,0);
 
 
-}
+},3500);
 
 
 
 }
+
+
+
+}
+
 
 
 </script>
