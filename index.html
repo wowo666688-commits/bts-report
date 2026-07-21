@@ -5,7 +5,7 @@
 
 <meta charset="UTF-8">
 
-<title>BTS REPORT SYSTEM v2.1</title>
+<title>BTS REPORT SYSTEM v2.2</title>
 
 
 <style>
@@ -21,7 +21,7 @@ margin:0;
 min-height:100vh;
 
 background:
-radial-gradient(circle at top,#6b21a8,#090014 75%);
+radial-gradient(circle at top,#7e22ce,#090014 75%);
 
 color:white;
 
@@ -38,7 +38,8 @@ overflow:hidden;
 }
 
 
-/* 紫色星空 */
+
+/* 星空 */
 
 .star{
 
@@ -48,7 +49,7 @@ width:3px;
 
 height:3px;
 
-background:#ffffff;
+background:white;
 
 border-radius:50%;
 
@@ -62,8 +63,6 @@ animation:twinkle 2s infinite;
 0%,100%{
 
 opacity:.2;
-
-transform:scale(1);
 
 }
 
@@ -88,19 +87,19 @@ position:relative;
 
 z-index:2;
 
-max-width:720px;
-
 width:90%;
+
+max-width:720px;
 
 background:rgba(20,8,35,.92);
 
-border-radius:25px;
-
 padding:35px;
+
+border-radius:25px;
 
 box-shadow:
 
-0 0 30px #a855f7,
+0 0 30px #c084fc,
 
 0 0 70px #7e22ce;
 
@@ -125,6 +124,7 @@ text-shadow:0 0 15px #c084fc;
 
 
 
+
 .line{
 
 border-top:1px solid #a855f7;
@@ -132,6 +132,7 @@ border-top:1px solid #a855f7;
 margin:25px 0;
 
 }
+
 
 
 
@@ -147,6 +148,7 @@ font-size:18px;
 
 
 
+
 .progress-box{
 
 background:#2e1065;
@@ -158,6 +160,8 @@ overflow:hidden;
 margin:20px 0;
 
 }
+
+
 
 
 
@@ -212,7 +216,6 @@ opacity:.2;
 
 
 
-
 .gift{
 
 display:none;
@@ -235,12 +238,17 @@ display:none;
 
 text-align:center;
 
+position:relative;
+
+height:180px;
+
 }
 
 
 
 
-button{
+
+#claimBtn{
 
 background:#a855f7;
 
@@ -256,23 +264,40 @@ border-radius:30px;
 
 cursor:pointer;
 
-box-shadow:0 0 20px #c084fc;
+box-shadow:0 0 25px #c084fc;
+
+position:absolute;
+
+left:50%;
+
+transform:translateX(-50%);
+
+transition:.3s;
 
 }
 
 
 
-button:hover{
+#claimBtn:hover{
 
-transform:scale(1.08);
+transform:translateX(-50%) scale(1.08);
 
 }
 
 
 
 
+.notice{
 
-/* 第二幕 */
+color:#f9a8d4;
+
+font-size:16px;
+
+}
+
+
+
+
 
 .reward-page{
 
@@ -284,19 +309,19 @@ color:#f9a8d4;
 
 font-size:18px;
 
-animation:fadein 1.5s;
+animation:show 1.5s;
 
 }
 
 
 
-@keyframes fadein{
+@keyframes show{
 
 from{
 
 opacity:0;
 
-transform:scale(.8);
+transform:scale(.7);
 
 }
 
@@ -310,6 +335,7 @@ transform:scale(1);
 }
 
 }
+
 
 
 
@@ -355,6 +381,7 @@ document.body.appendChild(star);
 </script>
 
 
+
 <div class="box">
 
 
@@ -363,7 +390,7 @@ document.body.appendChild(star);
 
 <div class="title">
 
-🎵 BTS REPORT SYSTEM v2.1
+🎵 BTS REPORT SYSTEM v2.2
 
 </div>
 
@@ -376,6 +403,7 @@ document.body.appendChild(star);
 正在進行身份驗證...
 
 </div>
+
 
 
 
@@ -397,7 +425,6 @@ document.body.appendChild(star);
 正在載入禮物資訊...
 
 
-
 <div class="progress-box">
 
 <div class="progress" id="bar">
@@ -410,6 +437,7 @@ document.body.appendChild(star);
 
 
 </div>
+
 
 
 
@@ -429,6 +457,7 @@ document.body.appendChild(star);
 
 
 
+
 <div class="warning" id="warning">
 
 
@@ -439,6 +468,7 @@ document.body.appendChild(star);
 正在確認配送資訊...
 
 </div>
+
 
 
 
@@ -463,14 +493,17 @@ document.body.appendChild(star);
 <br><br>
 
 
-請點擊下方按鈕領取
+<div class="notice" id="notice">
+
+請點擊按鈕領取你的禮物 💜
+
+</div>
 
 
-<br><br>
+<br>
 
 
-
-<button onclick="showReward()">
+<button id="claimBtn" onclick="tryClaim()">
 
 🎁 領取我的禮物
 
@@ -480,14 +513,13 @@ document.body.appendChild(star);
 </div>
 
 
+
 </div>
-<!-- 第一幕結束 -->
 
 
 
+<!-- 第二幕 -->
 
-
-<!-- 第二幕開始 -->
 
 <div class="reward-page" id="rewardPage">
 
@@ -497,7 +529,6 @@ document.body.appendChild(star);
 💜 禮物領取成功 💜
 
 </div>
-
 
 
 <div class="line"></div>
@@ -546,7 +577,6 @@ document.body.appendChild(star);
 是不是有那麼一瞬間真的相信了？哈哈哈！
 
 
-
 <br><br>
 
 
@@ -567,7 +597,6 @@ BTS 的阿米棒真的有夠難搶！！！！！
 但目前還不知道什麼時候會收到。
 
 
-
 <br><br>
 
 
@@ -583,7 +612,6 @@ BTS 的阿米棒真的有夠難搶！！！！！
 「先把有的送啊！不然要等太久了！」
 
 
-
 <br><br>
 
 
@@ -593,7 +621,7 @@ BTS 的阿米棒真的有夠難搶！！！！！
 <br><br>
 
 
-等阿米棒到貨之後，我再補給你，
+等阿米棒到貨之後，我再補給你。
 
 
 <br><br>
@@ -647,6 +675,7 @@ BTS 的阿米棒真的有夠難搶！！！！！
 Borahae 💜
 
 
+
 </div>
 <script>
 
@@ -668,7 +697,7 @@ document.getElementById("check").style.display="block";
 
 
 
-// 30%
+// 進度30%
 
 setTimeout(function(){
 
@@ -683,7 +712,7 @@ document.getElementById("bar").innerHTML="30%";
 
 
 
-// 60%
+// 進度60%
 
 setTimeout(function(){
 
@@ -698,7 +727,7 @@ document.getElementById("bar").innerHTML="60%";
 
 
 
-// 100%
+// 進度100%
 
 setTimeout(function(){
 
@@ -713,7 +742,7 @@ document.getElementById("bar").innerHTML="100%";
 
 
 
-// 資格確認
+// 禮物資格
 
 setTimeout(function(){
 
@@ -739,7 +768,7 @@ document.getElementById("warning").style.display="block";
 
 
 
-// 顯示領取按鈕
+// 出現領取按鈕
 
 setTimeout(function(){
 
@@ -755,23 +784,88 @@ document.getElementById("claim").style.display="block";
 
 
 
+// 調皮按鈕次數
+
+let clickCount = 0;
 
 
-// 點擊領取
 
-function showReward(){
+function tryClaim(){
 
+
+clickCount++;
+
+let btn=document.getElementById("claimBtn");
+
+let notice=document.getElementById("notice");
+
+
+
+if(clickCount==1){
+
+
+notice.innerHTML =
+"🤣 系統繁忙……請再試一次";
+
+
+moveButton();
+
+
+}
+
+
+
+else if(clickCount==2){
+
+
+notice.innerHTML =
+"😆 禮物好像跑掉了，再試一次";
+
+
+moveButton();
+
+
+}
+
+
+
+else{
 
 
 document.getElementById("systemPage").style.display="none";
 
 
-
 document.getElementById("rewardPage").style.display="block";
 
 
+}
+
 
 }
+
+
+
+
+
+function moveButton(){
+
+
+let x=Math.random()*180-90;
+
+let y=Math.random()*80-40;
+
+
+let btn=document.getElementById("claimBtn");
+
+
+btn.style.left="calc(50% + "+x+"px)";
+
+
+btn.style.top=y+"px";
+
+
+}
+
 
 
 </script>
