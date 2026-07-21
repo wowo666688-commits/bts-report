@@ -6,59 +6,62 @@
 
 <style>
 body {
-    background: #0d0715;
-    color: #ffffff;
-    font-family: "Microsoft JhengHei", sans-serif;
-    padding: 30px;
-    line-height: 1.8;
+    background:#090014;
+    color:white;
+    font-family:"Microsoft JhengHei",sans-serif;
+    display:flex;
+    justify-content:center;
+    padding:30px;
 }
 
-.container {
-    max-width: 700px;
-    margin: auto;
-    background: #1b1028;
-    padding: 30px;
-    border-radius: 20px;
-    box-shadow: 0 0 25px #8b5cf6;
+.box {
+    max-width:700px;
+    width:100%;
+    background:#170b24;
+    border-radius:20px;
+    padding:30px;
+    box-shadow:0 0 30px #8b5cf6;
 }
 
-h1 {
-    color: #d8b4fe;
-    text-align: center;
+.title {
+    text-align:center;
+    color:#e9d5ff;
+    font-size:28px;
 }
 
 .system {
-    color: #c084fc;
+    color:#d8b4fe;
+}
+
+.progress-box {
+    background:#333;
+    border-radius:20px;
+    overflow:hidden;
+    margin:20px 0;
 }
 
 .progress {
-    background: #333;
-    border-radius: 10px;
-    overflow: hidden;
-    margin: 10px 0;
-}
-
-.bar {
-    width: 100%;
-    background: #a855f7;
-    text-align: center;
-    padding: 5px;
+    width:0%;
+    background:#a855f7;
+    text-align:center;
+    transition:2s;
 }
 
 .gift {
-    text-align: center;
-    font-size: 22px;
-    color: #f0abfc;
-    margin: 20px 0;
+    display:none;
+    text-align:center;
+    color:#f0abfc;
+    font-size:24px;
+}
+
+.final {
+    display:none;
+    color:#f9a8d4;
 }
 
 .line {
-    border-top: 1px solid #7e22ce;
-    margin: 25px 0;
-}
-
-.highlight {
-    color: #f9a8d4;
+    border-top:1px solid #9333ea;
+    margin:25px 0;
 }
 
 </style>
@@ -67,19 +70,27 @@ h1 {
 
 <body>
 
-<div class="container">
+<div class="box">
 
-<h1>🎵 BTS REPORT SYSTEM v1.0</h1>
+<div class="title">
+🎵 BTS REPORT SYSTEM v1.0
+</div>
 
 <div class="line"></div>
 
-<div class="system">
+<div class="system" id="login">
 
-【歡迎登入 BTS 回報系統】
+🔐 正在登入系統...<br><br>
 
-<br><br>
+身份驗證中...
 
-🔐 身分驗證成功...<br>
+</div>
+
+
+<div id="check" style="display:none">
+
+<br>
+
 ✅ ARMY 身分確認<br>
 ✅ 生日壽星確認<br>
 ✅ 禮物領取資格確認
@@ -88,38 +99,29 @@ h1 {
 
 正在載入禮物資訊...
 
-<br><br>
-
-████████░░ 30%<br>
-██████████░ 60%<br>
-████████████ 100%
+<div class="progress-box">
+<div class="progress" id="bar">
+0%
+</div>
+</div>
 
 </div>
 
 
-<div class="gift">
+<div class="gift" id="gift">
 
-🎉 恭喜你獲得：<br>
+🎉 恭喜你獲得：<br><br>
+
 💜 BTS 演唱會阿米棒組合 💜
 
 </div>
 
 
+<div class="final" id="final">
+
 <div class="line"></div>
 
-
-...
-
-<br>
-...
-
-<br>
-...
-
-<br><br>
-
-
-⚠️ 系統提醒：<br>
+⚠️ 系統提醒：<br><br>
 
 阿米棒目前仍在待出貨中，<br>
 請耐心等候配送中……
@@ -128,16 +130,12 @@ h1 {
 
 目前可先領取：
 
-<br>
+<br><br>
 
 ✨ 阿米棒坐檯＋造型更換組合<br>
 🧸 愛心娃娃 × 1
 
-
 <div class="line"></div>
-
-
-<div class="highlight">
 
 等等……
 
@@ -146,23 +144,25 @@ h1 {
 有騙到你嗎？🤣<br>
 是不是有那麼一瞬間真的相信了？哈哈哈！
 
-</div>
+<br><br>
 
+BTS 的阿米棒真的有夠難搶！！！！！
 
 <br><br>
 
+我整個 6 月幾乎每天都在搶你的阿米棒，真的超級難搶！
+<br><br>
 
-BTS 的阿米棒真的有夠難搶！！！！！<br>
-
-我整個 6 月幾乎每天都在搶你的阿米棒，真的超級難搶！<br>
-
-最後終於買到了，但目前還不知道什麼時候會收到。
+最後終於買到了，<br>
+但目前還不知道什麼時候會收到。
 
 <br><br>
 
 原本想說等全部到齊再一起送給你，<br>
 
-結果跟我家幽默討論後，他一直說：<br>
+結果跟我家幽默討論後，他一直說：
+
+<br><br>
 
 「先把有的送啊！不然要等太久了！」
 
@@ -172,11 +172,16 @@ BTS 的阿米棒真的有夠難搶！！！！！<br>
 
 <br><br>
 
-等阿米棒到貨之後，我再補給你，<br>
+等阿米棒到貨之後，<br>
+我再補給你，
 
-到時候你就可以帶著它去演唱會 High 啦！<br>
+<br><br>
 
-而且還是場控版的，嘿嘿 😎
+到時候你就可以帶著它去演唱會 High 啦！😎
+
+<br><br>
+
+而且還是場控版的，嘿嘿 💜
 
 
 <div class="line"></div>
@@ -187,15 +192,21 @@ BTS 的阿米棒真的有夠難搶！！！！！<br>
 </h2>
 
 
-雖然是遲來的生日禮物，<br>
+雖然是遲來的生日禮物，
 
-但希望你收到的時候，<br>
+<br><br>
+
+但希望你收到的時候，
+
+<br>
 
 還是可以感受到滿滿的心意。
 
 <br><br>
 
-希望你會喜歡，<br>
+希望你會喜歡，
+
+<br>
 
 也希望我們一起期待阿米棒到貨的那一天！💜
 
@@ -203,8 +214,70 @@ BTS 的阿米棒真的有夠難搶！！！！！<br>
 
 Borahae 💜
 
+</div>
+
+
+<script>
+
+setTimeout(function(){
+
+document.getElementById("login").innerHTML =
+"🔐 身分驗證成功...";
+
+document.getElementById("check").style.display="block";
+
+
+},2000);
+
+
+
+setTimeout(function(){
+
+document.getElementById("bar").style.width="30%";
+document.getElementById("bar").innerHTML="30%";
+
+},3000);
+
+
+
+setTimeout(function(){
+
+document.getElementById("bar").style.width="60%";
+document.getElementById("bar").innerHTML="60%";
+
+},5000);
+
+
+
+setTimeout(function(){
+
+document.getElementById("bar").style.width="100%";
+document.getElementById("bar").innerHTML="100%";
+
+},7000);
+
+
+
+setTimeout(function(){
+
+document.getElementById("gift").style.display="block";
+
+},8500);
+
+
+
+setTimeout(function(){
+
+document.getElementById("final").style.display="block";
+
+},11000);
+
+
+</script>
+
 
 </div>
 
 </body>
+
 </html>
