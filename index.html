@@ -5,7 +5,7 @@
 
 <meta charset="UTF-8">
 
-<title>BTS REPORT SYSTEM v2.2</title>
+<title>BTS REPORT SYSTEM v2.3 FINAL</title>
 
 
 <style>
@@ -38,7 +38,6 @@ overflow:hidden;
 }
 
 
-
 /* 星空 */
 
 .star{
@@ -49,7 +48,7 @@ width:3px;
 
 height:3px;
 
-background:white;
+background:#fff;
 
 border-radius:50%;
 
@@ -61,23 +60,15 @@ animation:twinkle 2s infinite;
 @keyframes twinkle{
 
 0%,100%{
-
 opacity:.2;
-
 }
-
 
 50%{
-
 opacity:1;
-
 transform:scale(2);
-
 }
 
 }
-
-
 
 
 
@@ -163,8 +154,6 @@ margin:20px 0;
 
 
 
-
-
 .progress{
 
 width:0%;
@@ -193,14 +182,13 @@ display:none;
 
 text-align:center;
 
-font-size:21px;
+font-size:22px;
 
 color:#fde68a;
 
 animation:blink .8s infinite;
 
 }
-
 
 
 @keyframes blink{
@@ -212,6 +200,7 @@ opacity:.2;
 }
 
 }
+
 
 
 
@@ -240,7 +229,7 @@ text-align:center;
 
 position:relative;
 
-height:180px;
+height:220px;
 
 }
 
@@ -272,15 +261,7 @@ left:50%;
 
 transform:translateX(-50%);
 
-transition:.3s;
-
-}
-
-
-
-#claimBtn:hover{
-
-transform:translateX(-50%) scale(1.08);
+transition:.4s;
 
 }
 
@@ -291,7 +272,9 @@ transform:translateX(-50%) scale(1.08);
 
 color:#f9a8d4;
 
-font-size:16px;
+font-size:18px;
+
+font-weight:bold;
 
 }
 
@@ -315,6 +298,8 @@ animation:show 1.5s;
 
 
 
+
+
 @keyframes show{
 
 from{
@@ -324,7 +309,6 @@ opacity:0;
 transform:scale(.7);
 
 }
-
 
 to{
 
@@ -339,9 +323,10 @@ transform:scale(1);
 
 
 
+
 .success{
 
-font-size:28px;
+font-size:30px;
 
 color:#f0abfc;
 
@@ -390,7 +375,7 @@ document.body.appendChild(star);
 
 <div class="title">
 
-🎵 BTS REPORT SYSTEM v2.2
+🎵 BTS REPORT SYSTEM v2.3
 
 </div>
 
@@ -442,7 +427,6 @@ document.body.appendChild(star);
 
 
 
-
 <div class="gift" id="gift">
 
 
@@ -487,7 +471,7 @@ document.body.appendChild(star);
 <br><br>
 
 
-你的生日禮物已準備完成。
+你的生日禮物已準備完成 💜
 
 
 <br><br>
@@ -495,7 +479,7 @@ document.body.appendChild(star);
 
 <div class="notice" id="notice">
 
-請點擊按鈕領取你的禮物 💜
+請點擊按鈕領取你的禮物
 
 </div>
 
@@ -518,6 +502,9 @@ document.body.appendChild(star);
 
 
 
+
+
+
 <!-- 第二幕 -->
 
 
@@ -529,6 +516,7 @@ document.body.appendChild(star);
 💜 禮物領取成功 💜
 
 </div>
+
 
 
 <div class="line"></div>
@@ -546,10 +534,12 @@ document.body.appendChild(star);
 
 <br>
 
+
 ✨ 阿米棒坐檯＋造型更換組合
 
 
 <br>
+
 
 🧸 愛心娃娃 × 1
 
@@ -558,7 +548,9 @@ document.body.appendChild(star);
 <br><br>
 
 
+
 <div class="line"></div>
+
 
 
 
@@ -605,6 +597,7 @@ BTS 的阿米棒真的有夠難搶！！！！！
 <br>
 
 結果跟我家幽默討論後，他一直說：
+
 
 <br><br>
 
@@ -697,7 +690,7 @@ document.getElementById("check").style.display="block";
 
 
 
-// 進度30%
+// 30%
 
 setTimeout(function(){
 
@@ -712,7 +705,7 @@ document.getElementById("bar").innerHTML="30%";
 
 
 
-// 進度60%
+// 60%
 
 setTimeout(function(){
 
@@ -727,7 +720,7 @@ document.getElementById("bar").innerHTML="60%";
 
 
 
-// 進度100%
+// 100%
 
 setTimeout(function(){
 
@@ -768,7 +761,7 @@ document.getElementById("warning").style.display="block";
 
 
 
-// 出現領取按鈕
+// 顯示按鈕
 
 setTimeout(function(){
 
@@ -784,7 +777,9 @@ document.getElementById("claim").style.display="block";
 
 
 
-// 調皮按鈕次數
+
+
+// 按鈕逃跑次數
 
 let clickCount = 0;
 
@@ -795,37 +790,51 @@ function tryClaim(){
 
 clickCount++;
 
+
 let btn=document.getElementById("claimBtn");
 
 let notice=document.getElementById("notice");
 
 
 
+
 if(clickCount==1){
 
 
-notice.innerHTML =
-"🤣 系統繁忙……請再試一次";
+notice.innerHTML=
+"🤣 禮物跑掉啦！<br><br>請再試一次！";
 
 
-moveButton();
+notice.style.fontSize="28px";
+
+
+btn.style.left="15%";
+
+btn.style.top="20px";
 
 
 }
+
 
 
 
 else if(clickCount==2){
 
 
-notice.innerHTML =
-"😆 禮物好像跑掉了，再試一次";
+notice.innerHTML=
+"😆 差一點！<br><br>禮物又溜走了！";
 
 
-moveButton();
+notice.style.fontSize="28px";
+
+
+btn.style.left="75%";
+
+btn.style.top="120px";
 
 
 }
+
 
 
 
@@ -841,31 +850,8 @@ document.getElementById("rewardPage").style.display="block";
 }
 
 
-}
-
-
-
-
-
-function moveButton(){
-
-
-let x=Math.random()*180-90;
-
-let y=Math.random()*80-40;
-
-
-let btn=document.getElementById("claimBtn");
-
-
-btn.style.left="calc(50% + "+x+"px)";
-
-
-btn.style.top=y+"px";
-
 
 }
-
 
 
 </script>
