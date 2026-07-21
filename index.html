@@ -9,7 +9,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 
-<title>BTS REPORT SYSTEM v3.7</title>
+<title>BTS REPORT SYSTEM v3.7.1</title>
 
 
 <style>
@@ -26,17 +26,21 @@ html,body{
 
 margin:0;
 
+padding:0;
+
+width:100%;
+
 min-height:100%;
 
 }
 
 
-
 body{
+
 
 background:
 
-radial-gradient(circle at top,#8b5cf6,#090014 85%);
+radial-gradient(circle at top,#8b5cf6,#090014 90%);
 
 
 color:white;
@@ -48,25 +52,13 @@ font-family:"Microsoft JhengHei",sans-serif;
 overflow-x:hidden;
 
 
-overflow-y:auto;
-
-
-display:flex;
-
-
-justify-content:center;
-
-
-align-items:flex-start;
-
-
-padding-top:3vh;
-
 }
 
 
 
 
+
+/* 星空 */
 
 
 .star{
@@ -74,27 +66,19 @@ padding-top:3vh;
 
 position:fixed;
 
-
 width:3px;
-
 
 height:3px;
 
-
 background:white;
-
 
 border-radius:50%;
 
+z-index:0;
 
 animation:twinkle 2s infinite;
 
-
-z-index:0;
-
-
 }
-
 
 
 @keyframes twinkle{
@@ -104,7 +88,7 @@ z-index:0;
 
 opacity:.3;
 
-transform:scale(2);
+transform:scale(1.8);
 
 }
 
@@ -125,16 +109,12 @@ transform:scale(2);
 
 position:fixed;
 
-
 inset:0;
 
 
 background:
 
 radial-gradient(circle,#581c87,#090014);
-
-
-z-index:9999;
 
 
 display:flex;
@@ -149,6 +129,9 @@ align-items:center;
 flex-direction:column;
 
 
+z-index:9999;
+
+
 text-align:center;
 
 
@@ -157,15 +140,12 @@ text-align:center;
 
 
 
-
 .loading-title{
 
 
-font-size:32px;
-
+font-size:30px;
 
 color:#f0abfc;
-
 
 text-shadow:0 0 25px #c084fc;
 
@@ -173,26 +153,22 @@ text-shadow:0 0 25px #c084fc;
 }
 
 
-
 .loading-text{
 
 
-margin-top:25px;
+margin-top:20px;
 
-
-font-size:18px;
+font-size:17px;
 
 
 }
 
 
 
-
 .loading-bar{
 
 
-width:280px;
-
+width:260px;
 
 height:18px;
 
@@ -210,7 +186,6 @@ margin-top:20px;
 
 
 }
-
 
 
 
@@ -241,7 +216,8 @@ transition:1s;
 
 
 
-/* 主系統 */
+
+/* 系統卡 */
 
 
 .box{
@@ -259,30 +235,23 @@ width:94%;
 max-width:720px;
 
 
-min-height:90vh;
+margin:20px auto;
 
 
 background:
 
-rgba(20,8,35,.94);
+rgba(20,8,35,.95);
 
 
 border-radius:25px;
 
 
-padding:22px;
+padding:20px;
 
 
 box-shadow:
 
-
-0 0 35px #c084fc,
-
-
-0 0 80px #7e22ce;
-
-
-margin-bottom:30px;
+0 0 35px #c084fc;
 
 
 }
@@ -302,10 +271,13 @@ position:absolute;
 right:12px;
 
 
-top:8px;
+top:12px;
 
 
 font-size:11px;
+
+
+color:#86efac;
 
 
 background:rgba(0,0,0,.35);
@@ -316,27 +288,6 @@ padding:5px 10px;
 
 border-radius:20px;
 
-
-color:#86efac;
-
-
-animation:blink 1.5s infinite;
-
-
-}
-
-
-
-
-
-@keyframes blink{
-
-
-50%{
-
-opacity:.35;
-
-}
 
 }
 
@@ -350,7 +301,7 @@ opacity:.35;
 text-align:center;
 
 
-font-size:25px;
+font-size:24px;
 
 
 color:#f0abfc;
@@ -359,12 +310,10 @@ color:#f0abfc;
 text-shadow:0 0 15px #c084fc;
 
 
-margin-top:12px;
+margin-top:15px;
 
 
 }
-
-
 
 
 
@@ -372,14 +321,16 @@ margin-top:12px;
 .line{
 
 
-border-top:1px solid #a855f7;
+height:1px;
+
+
+background:#a855f7;
 
 
 margin:15px 0;
 
 
 }
-
 
 
 
@@ -403,12 +354,10 @@ color:#e9d5ff;
 
 
 
-
-
 .progress-box{
 
 
-height:25px;
+height:24px;
 
 
 background:#2e1065;
@@ -428,7 +377,6 @@ margin:15px 0;
 
 
 
-
 .progress{
 
 
@@ -443,19 +391,20 @@ background:
 linear-gradient(90deg,#9333ea,#f0abfc);
 
 
-text-align:center;
-
-
-line-height:25px;
+line-height:24px;
 
 
 font-size:12px;
+
+
+text-align:center;
 
 
 transition:1s;
 
 
 }
+
 
 
 
@@ -480,11 +429,24 @@ line-height:1.5;
 color:#fde68a;
 
 
+padding:10px;
+
+
 animation:blink .8s infinite;
 
 
-padding:10px;
+}
 
+
+
+@keyframes blink{
+
+
+50%{
+
+opacity:.4;
+
+}
 
 }
 
@@ -509,20 +471,20 @@ text-align:center;
 
 
 
-
 .notice{
 
 
-font-size:20px;
-
-
-font-weight:bold;
+font-size:19px;
 
 
 color:#f9a8d4;
 
 
+font-weight:bold;
+
+
 }
+
 
 
 
@@ -532,16 +494,19 @@ color:#f9a8d4;
 #claimBtn{
 
 
+position:relative;
+
+
 background:#a855f7;
 
 
 color:white;
 
 
-border:none;
+border:0;
 
 
-padding:13px 28px;
+padding:13px 25px;
 
 
 font-size:17px;
@@ -550,13 +515,20 @@ font-size:17px;
 border-radius:30px;
 
 
-box-shadow:0 0 25px #c084fc;
-
-
 min-width:200px;
 
 
+max-width:85vw;
+
+
+box-shadow:
+
+0 0 25px #c084fc;
+
+
 }
+
+
 
 
 
@@ -575,15 +547,15 @@ position:fixed;
 inset:0;
 
 
-background:
-
-radial-gradient(circle,#581c87,#090014);
-
-
 display:none;
 
 
 z-index:9998;
+
+
+background:
+
+radial-gradient(circle,#581c87,#090014);
 
 
 justify-content:center;
@@ -599,7 +571,6 @@ text-align:center;
 
 
 }
-
 
 
 
@@ -619,20 +590,16 @@ text-shadow:0 0 25px #c084fc;
 
 
 
-
-
 .secret-text{
 
 
-margin-top:25px;
+margin-top:20px;
 
 
 font-size:18px;
 
 
 }
-
-
 
 
 
@@ -688,7 +655,8 @@ transition:1s;
 
 
 
-/* 最後生日頁 */
+
+/* 最終頁 */
 
 
 .reward-page{
@@ -697,27 +665,18 @@ transition:1s;
 display:none;
 
 
-position:relative;
-
-
-z-index:5;
-
-
 width:94%;
 
 
 max-width:720px;
 
 
-min-height:100vh;
-
-
-margin:0 auto 40px;
+margin:20px auto;
 
 
 background:
 
-rgba(20,8,35,.94);
+rgba(20,8,35,.95);
 
 
 border-radius:25px;
@@ -726,26 +685,27 @@ border-radius:25px;
 padding:25px;
 
 
+color:#f9a8d4;
+
+
 font-size:17px;
 
 
 line-height:1.9;
 
 
-color:#f9a8d4;
-
-
 text-align:center;
 
 
-box-shadow:0 0 35px #c084fc;
+box-shadow:
+
+0 0 35px #c084fc;
 
 
-animation:fadeIn 1.5s;
+animation:fadeIn 1.2s;
 
 
 }
-
 
 
 
@@ -756,7 +716,7 @@ from{
 
 opacity:0;
 
-transform:translateY(30px);
+transform:translateY(20px);
 
 }
 
@@ -764,8 +724,6 @@ transform:translateY(30px);
 to{
 
 opacity:1;
-
-transform:none;
 
 }
 
@@ -793,6 +751,8 @@ text-shadow:0 0 20px #c084fc;
 
 
 
+
+
 @media(max-width:600px){
 
 
@@ -808,13 +768,15 @@ padding:18px;
 }
 
 
+
 .title{
 
 
-font-size:22px;
+font-size:21px;
 
 
 }
+
 
 
 .system{
@@ -830,14 +792,26 @@ font-size:15px;
 .reward-page{
 
 
+width:96%;
+
+
 font-size:16px;
 
 
 }
 
 
+
+.secret-title{
+
+
+font-size:25px;
+
+
 }
 
+
+}
 
 
 </style>
@@ -853,7 +827,7 @@ font-size:16px;
 
 // 星空背景
 
-for(let i=0;i<100;i++){
+for(let i=0;i<90;i++){
 
 
 let star=document.createElement("div");
@@ -887,7 +861,6 @@ document.body.appendChild(star);
 
 
 
-
 <!-- 載入畫面 -->
 
 
@@ -901,7 +874,6 @@ document.body.appendChild(star);
 
 
 </div>
-
 
 
 
@@ -928,6 +900,7 @@ document.body.appendChild(star);
 </div>
 
 
+
 </div>
 
 
@@ -938,7 +911,7 @@ document.body.appendChild(star);
 
 
 
-<!-- 系統頁 -->
+<!-- 系統主頁 -->
 
 
 <div class="box" id="systemBox">
@@ -955,13 +928,7 @@ document.body.appendChild(star);
 🟢 SYSTEM ONLINE
 
 
-<br>
-
-<span id="systemTime"></span>
-
-
 </div>
-
 
 
 
@@ -970,7 +937,7 @@ document.body.appendChild(star);
 <div class="title">
 
 
-🎵 BTS REPORT SYSTEM v3.7
+🎵 BTS REPORT SYSTEM v3.7.1
 
 
 </div>
@@ -979,8 +946,6 @@ document.body.appendChild(star);
 
 
 <div class="line"></div>
-
-
 
 
 
@@ -1013,6 +978,10 @@ document.body.appendChild(star);
 
 
 
+
+<!-- 單一驗證顯示區 -->
+
+
 <div id="verifyArea" style="display:none;">
 
 
@@ -1021,6 +990,7 @@ document.body.appendChild(star);
 
 
 </div>
+
 
 
 
@@ -1040,6 +1010,8 @@ document.body.appendChild(star);
 
 
 </div>
+
+
 
 
 
@@ -1078,6 +1050,8 @@ document.body.appendChild(star);
 
 
 
+
+
 <div class="claim" id="claim">
 
 
@@ -1086,9 +1060,7 @@ document.body.appendChild(star);
 
 
 
-
 🎁 禮物領取通知
-
 
 
 
@@ -1113,6 +1085,8 @@ document.body.appendChild(star);
 
 
 
+
+
 <button id="claimBtn" onclick="tryClaim()">
 
 
@@ -1125,17 +1099,6 @@ document.body.appendChild(star);
 
 
 
-</div>
-
-
-
-
-
-</div>
-
-
-</div>
-
 
 </div>
 
@@ -1143,13 +1106,27 @@ document.body.appendChild(star);
 
 
 
+</div>
+
+
+</div>
+
+
+</div>
 
 
 
 
 
 
-<!-- SECRET 解密 -->
+
+
+
+
+
+
+
+<!-- SECRET 解密頁 -->
 
 
 <div class="secret-screen" id="secretScreen">
@@ -1172,6 +1149,7 @@ document.body.appendChild(star);
 
 
 </div>
+
 
 
 
@@ -1200,12 +1178,13 @@ document.body.appendChild(star);
 
 
 
-<!-- 最終生日頁 -->
 
+
+
+<!-- 最後生日頁 -->
 
 
 <div class="reward-page" id="rewardPage">
-
 
 
 <div class="success">
@@ -1215,8 +1194,6 @@ document.body.appendChild(star);
 
 
 </div>
-
-
 
 
 
@@ -1259,8 +1236,8 @@ document.body.appendChild(star);
 
 
 
-
 <div class="line"></div>
+
 
 
 
@@ -1291,12 +1268,12 @@ document.body.appendChild(star);
 
 
 
-
 BTS 的阿米棒真的有夠難搶！！！！！
 
 
 
 <br><br>
+
 
 
 
@@ -1328,7 +1305,6 @@ BTS 的阿米棒真的有夠難搶！！！！！
 
 
 
-
 原本想說等全部到齊再一起送給你，
 
 
@@ -1355,13 +1331,11 @@ BTS 的阿米棒真的有夠難搶！！！！！
 
 
 
-
 所以就決定先把這份送給你❤️
 
 
 
 <br><br>
-
 
 
 
@@ -1397,7 +1371,6 @@ BTS 的阿米棒真的有夠難搶！！！！！
 
 
 </h2>
-
 
 
 
@@ -1445,10 +1418,7 @@ BTS 的阿米棒真的有夠難搶！！！！！
 
 
 
-
 Borahae 💜
-
-
 
 
 
@@ -1458,41 +1428,14 @@ Borahae 💜
 
 
 // ==========================
-// 系統時間
+// 載入流程
 // ==========================
-
-
-setInterval(()=>{
-
-
-let now=new Date();
-
-
-systemTime.innerHTML=
-
-now.toLocaleTimeString();
-
-
-},1000);
-
-
-
-
-
-
-
-
-
-// ==========================
-// 載入動畫
-// ==========================
-
 
 
 setTimeout(()=>{
 
 
-loadingBar.style.width="25%";
+loadingBar.style.width="30%";
 
 
 loadingText.innerHTML=
@@ -1506,11 +1449,10 @@ loadingText.innerHTML=
 
 
 
-
 setTimeout(()=>{
 
 
-loadingBar.style.width="50%";
+loadingBar.style.width="60%";
 
 
 loadingText.innerHTML=
@@ -1528,24 +1470,6 @@ loadingText.innerHTML=
 setTimeout(()=>{
 
 
-loadingBar.style.width="75%";
-
-
-loadingText.innerHTML=
-
-"🎂 正在分析生日資訊...";
-
-
-},5500);
-
-
-
-
-
-
-setTimeout(()=>{
-
-
 loadingBar.style.width="100%";
 
 
@@ -1554,7 +1478,8 @@ loadingText.innerHTML=
 "✨ SYSTEM READY ✨";
 
 
-},7500);
+},5500);
+
 
 
 
@@ -1567,9 +1492,7 @@ setTimeout(()=>{
 loadingScreen.style.display="none";
 
 
-},9500);
-
-
+},7500);
 
 
 
@@ -1602,8 +1525,7 @@ login.innerHTML=
 `;
 
 
-
-},11000);
+},9000);
 
 
 
@@ -1614,32 +1536,26 @@ login.innerHTML=
 
 
 // ==========================
-// 驗證流程
+// 驗證工具
 // ==========================
 
 
-
-setTimeout(()=>{
+function setVerify(text,percent){
 
 
 verifyArea.style.display="block";
 
 
-verifyText.innerHTML=
-
-`
-🔐 身分驗證中...
-`;
+verifyText.innerHTML=text;
 
 
-
-verifyBar.style.width="40%";
-
-
-verifyBar.innerHTML="40%";
+verifyBar.style.width=percent+"%";
 
 
-},14000);
+verifyBar.innerHTML=percent+"%";
+
+
+}
 
 
 
@@ -1647,60 +1563,84 @@ verifyBar.innerHTML="40%";
 
 
 
-// 故障彩蛋
+
+
+// ==========================
+// 身分驗證
+// ==========================
+
 
 
 setTimeout(()=>{
 
 
-verifyText.innerHTML=
+setVerify(
 
-`
-⚠️ 驗證異常
+"🔐 身分驗證中...",
 
-<br><br>
+35
 
-偵測到生日資料過於珍貴
-
-<br><br>
-
-🔄 重新建立驗證程序...
-`;
+);
 
 
-
-verifyBar.style.width="70%";
-
-
-verifyBar.innerHTML="70%";
-
-
-},18000);
+},12000);
 
 
 
 
 
-
-
-// 重新驗證
 
 
 setTimeout(()=>{
 
 
-verifyText.innerHTML=
+setVerify(
 
-`
-🔄 第二次驗證中...
-`;
+"⚠️ 驗證異常<br><br>資料重新同步中...",
 
+60
 
-
-verifyBar.style.width="85%";
+);
 
 
-verifyBar.innerHTML="85%";
+},16000);
+
+
+
+
+
+
+
+setTimeout(()=>{
+
+
+setVerify(
+
+"🔄 重新驗證中...",
+
+20
+
+);
+
+
+},19000);
+
+
+
+
+
+
+
+setTimeout(()=>{
+
+
+setVerify(
+
+"🔄 重新驗證中...",
+
+70
+
+);
 
 
 },22000);
@@ -1714,21 +1654,16 @@ verifyBar.innerHTML="85%";
 setTimeout(()=>{
 
 
-verifyText.innerHTML=
+setVerify(
 
-`
-✅ ARMY 身分確認
-`;
+"✅ ARMY 身分確認",
 
+100
 
-
-verifyBar.style.width="100%";
+);
 
 
-verifyBar.innerHTML="100%";
-
-
-},26000);
+},25000);
 
 
 
@@ -1737,52 +1672,26 @@ verifyBar.innerHTML="100%";
 
 
 
+
+// ==========================
 // 生日驗證
-
-
-setTimeout(()=>{
-
-
-verifyText.innerHTML=
-
-`
-🎂 生日驗證中...
-`;
-
-
-
-verifyBar.style.width="60%";
-
-
-verifyBar.innerHTML="60%";
-
-
-},30000);
-
-
-
-
+// ==========================
 
 
 
 setTimeout(()=>{
 
 
-verifyText.innerHTML=
+setVerify(
 
-`
-✅ 生日確認
-`;
+"🎂 生日驗證中...",
 
+30
 
-
-verifyBar.style.width="100%";
+);
 
 
-verifyBar.innerHTML="100%";
-
-
-},34000);
+},29000);
 
 
 
@@ -1790,50 +1699,86 @@ verifyBar.innerHTML="100%";
 
 
 
+setTimeout(()=>{
 
+
+setVerify(
+
+"🎂 生日驗證中...",
+
+80
+
+);
+
+
+},32000);
+
+
+
+
+
+
+
+setTimeout(()=>{
+
+
+setVerify(
+
+"✅ 生日確認",
+
+100
+
+);
+
+
+},35000);
+
+
+
+
+
+
+
+
+
+
+
+// ==========================
 // 禮物資格
-
-
-setTimeout(()=>{
-
-
-verifyText.innerHTML=
-
-`
-🎁 禮物資格檢查中...
-`;
-
-
-
-verifyBar.style.width="70%";
-
-
-verifyBar.innerHTML="70%";
-
-
-},38000);
-
-
-
-
+// ==========================
 
 
 
 setTimeout(()=>{
 
 
-verifyText.innerHTML=
+setVerify(
 
-`
-✅ 禮物領取資格確認
-`;
+"🎁 禮物資格確認中...",
 
+40
 
-
-verifyBar.style.width="100%";
+);
 
 
-verifyBar.innerHTML="100%";
+},39000);
+
+
+
+
+
+
+
+setTimeout(()=>{
+
+
+setVerify(
+
+"🎁 禮物資格確認中...",
+
+90
+
+);
 
 
 },42000);
@@ -1844,9 +1789,33 @@ verifyBar.innerHTML="100%";
 
 
 
+setTimeout(()=>{
 
 
+setVerify(
+
+"✅ 禮物領取資格確認",
+
+100
+
+);
+
+
+},45000);
+
+
+
+
+
+
+
+
+
+
+// ==========================
 // 系統提醒
+// ==========================
+
 
 
 setTimeout(()=>{
@@ -1855,7 +1824,7 @@ setTimeout(()=>{
 warning.style.display="block";
 
 
-},46000);
+},48000);
 
 
 
@@ -1869,10 +1838,7 @@ setTimeout(()=>{
 claim.style.display="block";
 
 
-},50000);
-
-
-
+},52000);
 
 
 
@@ -1899,11 +1865,11 @@ function tryClaim(){
 clickCount++;
 
 
+
 let btn=document.getElementById("claimBtn");
 
 
 let notice=document.getElementById("notice");
-
 
 
 
@@ -1917,15 +1883,11 @@ if(clickCount===1){
 notice.innerHTML=
 
 `
-⚠️ ERROR
+⚠️ 禮物定位中...
 
 <br><br>
 
-禮物定位失敗...
-
-<br><br>
-
-🤣 禮物跑掉啦！
+🤣 禮物跑走啦！
 `;
 
 
@@ -1933,10 +1895,10 @@ notice.innerHTML=
 btn.style.position="fixed";
 
 
-btn.style.left="15%";
+btn.style.left="10%";
 
 
-btn.style.top="15%";
+btn.style.top="30%";
 
 
 
@@ -1956,23 +1918,19 @@ else if(clickCount===2){
 notice.innerHTML=
 
 `
-⚠️ WARNING
+⚠️ 再次定位中...
 
 <br><br>
 
-偵測到禮物移動...
-
-<br><br>
-
-😆 又溜走了！
+😆 又跑掉了！
 `;
 
 
 
-btn.style.left="80%";
+btn.style.left="55%";
 
 
-btn.style.top="80%";
+btn.style.top="55%";
 
 
 
@@ -1984,10 +1942,7 @@ btn.style.top="80%";
 
 
 
-
-
 else{
-
 
 
 btn.style.display="none";
@@ -2021,18 +1976,19 @@ secretBar.style.width="35%";
 
 
 
+
 setTimeout(()=>{
 
 
 secretText.innerHTML=
 
-"🔐 SECRET DATA ANALYSIS...";
+"🔐 SECRET DATA ANALYSIS";
 
 
 secretBar.style.width="70%";
 
 
-},1800);
+},2000);
 
 
 
@@ -2051,7 +2007,8 @@ secretText.innerHTML=
 secretBar.style.width="100%";
 
 
-},3200);
+},3500);
+
 
 
 
@@ -2067,17 +2024,10 @@ secretScreen.style.display="none";
 rewardPage.style.display="block";
 
 
-window.scrollTo({
-
-top:0,
-
-behavior:"smooth"
-
-});
+window.scrollTo(0,0);
 
 
 },5000);
-
 
 
 
