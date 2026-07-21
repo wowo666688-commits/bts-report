@@ -8,8 +8,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-
-<title>BTS REPORT SYSTEM v3.7.1</title>
+<title>BTS REPORT SYSTEM v3.7.2</title>
 
 
 <style>
@@ -35,8 +34,8 @@ min-height:100%;
 }
 
 
-body{
 
+body{
 
 background:
 
@@ -58,27 +57,33 @@ overflow-x:hidden;
 
 
 
-/* 星空 */
-
-
 .star{
 
 
 position:fixed;
 
+
 width:3px;
+
 
 height:3px;
 
+
 background:white;
+
 
 border-radius:50%;
 
+
 z-index:0;
+
 
 animation:twinkle 2s infinite;
 
+
 }
+
+
 
 
 @keyframes twinkle{
@@ -92,6 +97,7 @@ transform:scale(1.8);
 
 }
 
+
 }
 
 
@@ -101,13 +107,14 @@ transform:scale(1.8);
 
 
 
-/* 載入頁 */
+/* Loading */
 
 
 #loadingScreen{
 
 
 position:fixed;
+
 
 inset:0;
 
@@ -145,7 +152,9 @@ text-align:center;
 
 font-size:30px;
 
+
 color:#f0abfc;
+
 
 text-shadow:0 0 25px #c084fc;
 
@@ -153,10 +162,13 @@ text-shadow:0 0 25px #c084fc;
 }
 
 
+
+
 .loading-text{
 
 
 margin-top:20px;
+
 
 font-size:17px;
 
@@ -165,10 +177,13 @@ font-size:17px;
 
 
 
+
+
 .loading-bar{
 
 
 width:260px;
+
 
 height:18px;
 
@@ -186,6 +201,7 @@ margin-top:20px;
 
 
 }
+
 
 
 
@@ -217,7 +233,7 @@ transition:1s;
 
 
 
-/* 系統卡 */
+/* System */
 
 
 .box{
@@ -294,7 +310,6 @@ border-radius:20px;
 
 
 
-
 .title{
 
 
@@ -349,6 +364,47 @@ color:#e9d5ff;
 
 
 }
+
+
+
+
+
+
+
+
+/* 新驗證清單 */
+
+
+.verify-list{
+
+
+margin-top:15px;
+
+
+font-size:15px;
+
+
+line-height:1.8;
+
+
+color:#f9a8d4;
+
+
+}
+
+
+
+
+
+.verify-list div{
+
+
+transition:.5s;
+
+
+}
+
+
 
 
 
@@ -410,7 +466,6 @@ transition:1s;
 
 
 
-
 .warning{
 
 
@@ -448,9 +503,8 @@ opacity:.4;
 
 }
 
+
 }
-
-
 
 
 
@@ -477,15 +531,13 @@ text-align:center;
 font-size:19px;
 
 
-color:#f9a8d4;
-
-
 font-weight:bold;
 
 
+color:#f9a8d4;
+
+
 }
-
-
 
 
 
@@ -535,6 +587,7 @@ box-shadow:
 
 
 
+
 /* SECRET */
 
 
@@ -571,6 +624,7 @@ text-align:center;
 
 
 }
+
 
 
 
@@ -656,7 +710,7 @@ transition:1s;
 
 
 
-/* 最終頁 */
+/* Final */
 
 
 .reward-page{
@@ -709,6 +763,7 @@ animation:fadeIn 1.2s;
 
 
 
+
 @keyframes fadeIn{
 
 
@@ -725,7 +780,9 @@ to{
 
 opacity:1;
 
+
 }
+
 
 }
 
@@ -752,7 +809,6 @@ text-shadow:0 0 20px #c084fc;
 
 
 
-
 @media(max-width:600px){
 
 
@@ -769,6 +825,7 @@ padding:18px;
 
 
 
+
 .title{
 
 
@@ -776,6 +833,7 @@ font-size:21px;
 
 
 }
+
 
 
 
@@ -812,6 +870,7 @@ font-size:25px;
 
 
 }
+
 
 
 </style>
@@ -861,7 +920,7 @@ document.body.appendChild(star);
 
 
 
-<!-- 載入畫面 -->
+<!-- Loading -->
 
 
 <div id="loadingScreen">
@@ -900,7 +959,6 @@ document.body.appendChild(star);
 </div>
 
 
-
 </div>
 
 
@@ -911,15 +969,13 @@ document.body.appendChild(star);
 
 
 
-<!-- 系統主頁 -->
+<!-- 主系統 -->
 
 
 <div class="box" id="systemBox">
 
 
-
 <div id="systemPage">
-
 
 
 <div class="status">
@@ -934,14 +990,14 @@ document.body.appendChild(star);
 
 
 
+
 <div class="title">
 
 
-🎵 BTS REPORT SYSTEM v3.7.1
+🎵 BTS REPORT SYSTEM v3.7.2
 
 
 </div>
-
 
 
 
@@ -953,9 +1009,6 @@ document.body.appendChild(star);
 
 
 <div class="system">
-
-
-
 
 
 <div id="login">
@@ -979,17 +1032,26 @@ document.body.appendChild(star);
 
 
 
-<!-- 單一驗證顯示區 -->
-
-
 <div id="verifyArea" style="display:none;">
 
 
 
-<div id="verifyText">
+<div class="verify-list" id="verifyList">
+
+
+⬜ ARMY 身分確認
+
+<br>
+
+⬜ 生日資料確認
+
+<br>
+
+⬜ 禮物資格確認
 
 
 </div>
+
 
 
 
@@ -1009,8 +1071,20 @@ document.body.appendChild(star);
 </div>
 
 
+
+
+
+<div id="verifyText">
+
+
+準備分析...
+
+
 </div>
 
+
+
+</div>
 
 
 
@@ -1051,7 +1125,6 @@ document.body.appendChild(star);
 
 
 
-
 <div class="claim" id="claim">
 
 
@@ -1069,7 +1142,6 @@ document.body.appendChild(star);
 
 
 
-
 <div class="notice" id="notice">
 
 
@@ -1081,8 +1153,8 @@ document.body.appendChild(star);
 
 
 
-<br>
 
+<br>
 
 
 
@@ -1099,19 +1171,6 @@ document.body.appendChild(star);
 
 
 
-
-</div>
-
-
-
-
-
-</div>
-
-
-</div>
-
-
 </div>
 
 
@@ -1120,13 +1179,23 @@ document.body.appendChild(star);
 
 
 
+</div>
+
+
+</div>
+
+
+</div>
 
 
 
 
 
 
-<!-- SECRET 解密頁 -->
+
+
+
+<!-- SECRET -->
 
 
 <div class="secret-screen" id="secretScreen">
@@ -1146,6 +1215,18 @@ document.body.appendChild(star);
 
 
 正在連線...
+
+
+<br><br>
+
+
+LEVEL 99 ACCESS
+
+
+<br>
+
+
+SPECIAL USER DETECTED
 
 
 </div>
@@ -1376,6 +1457,7 @@ BTS 的阿米棒真的有夠難搶！！！！！
 
 
 
+
 雖然是遲來的生日禮物，
 
 
@@ -1418,6 +1500,7 @@ BTS 的阿米棒真的有夠難搶！！！！！
 
 
 
+
 Borahae 💜
 
 
@@ -1428,22 +1511,19 @@ Borahae 💜
 
 
 // ==========================
-// 載入流程
+// Loading
 // ==========================
 
 
 setTimeout(()=>{
 
-
 loadingBar.style.width="30%";
-
 
 loadingText.innerHTML=
 
 "正在建立安全連線...";
 
-
-},1500);
+},1200);
 
 
 
@@ -1451,16 +1531,13 @@ loadingText.innerHTML=
 
 setTimeout(()=>{
 
-
-loadingBar.style.width="60%";
-
+loadingBar.style.width="65%";
 
 loadingText.innerHTML=
 
 "🔐 正在連接 ARMY 資料庫...";
 
-
-},3500);
+},2800);
 
 
 
@@ -1469,17 +1546,13 @@ loadingText.innerHTML=
 
 setTimeout(()=>{
 
-
 loadingBar.style.width="100%";
-
 
 loadingText.innerHTML=
 
 "✨ SYSTEM READY ✨";
 
-
-},5500);
-
+},4500);
 
 
 
@@ -1488,11 +1561,9 @@ loadingText.innerHTML=
 
 setTimeout(()=>{
 
-
 loadingScreen.style.display="none";
 
-
-},7500);
+},6000);
 
 
 
@@ -1525,7 +1596,8 @@ login.innerHTML=
 `;
 
 
-},9000);
+
+},7500);
 
 
 
@@ -1536,24 +1608,45 @@ login.innerHTML=
 
 
 // ==========================
-// 驗證工具
+// 驗證控制
 // ==========================
 
 
-function setVerify(text,percent){
+let percent=0;
 
 
-verifyArea.style.display="block";
+
+function updateProgress(value){
 
 
-verifyText.innerHTML=text;
+percent=value;
 
 
-verifyBar.style.width=percent+"%";
+verifyBar.style.width=value+"%";
 
 
-verifyBar.innerHTML=percent+"%";
+verifyBar.innerHTML=value+"%";
 
+
+}
+
+
+
+
+
+
+function updateList(a,b,c){
+
+
+verifyList.innerHTML=`
+
+<div>${a}</div>
+
+<div>${b}</div>
+
+<div>${c}</div>
+
+`;
 
 }
 
@@ -1565,42 +1658,93 @@ verifyBar.innerHTML=percent+"%";
 
 
 
-// ==========================
-// 身分驗證
-// ==========================
+
+setTimeout(()=>{
+
+
+verifyArea.style.display="block";
+
+
+updateList(
+
+"🔄 ARMY 身分確認中",
+
+"⬜ 生日資料確認",
+
+"⬜ 禮物資格確認"
+
+);
+
+
+updateProgress(20);
+
+
+
+verifyText.innerHTML=
+
+"正在分析使用者資料...";
+
+
+},10000);
+
+
+
+
+
+
 
 
 
 setTimeout(()=>{
 
 
-setVerify(
+updateProgress(45);
 
-"🔐 身分驗證中...",
 
-35
+updateList(
+
+"🔄 ARMY 身分確認中",
+
+"⬜ 生日資料確認",
+
+"⬜ 禮物資格確認"
 
 );
 
 
-},12000);
+},13000);
 
 
 
 
 
+
+
+
+
+// 彩蛋
 
 
 setTimeout(()=>{
 
 
-setVerify(
+updateProgress(55);
 
-"⚠️ 驗證異常<br><br>資料重新同步中...",
 
-60
+verifyText.innerHTML=
 
-);
+`
+⚠️ 驗證異常
+
+<br><br>
+
+偵測到特殊生日資料
+
+<br>
+
+正在重新同步...
+`;
+
 
 
 },16000);
@@ -1611,16 +1755,29 @@ setVerify(
 
 
 
+
+
 setTimeout(()=>{
 
 
-setVerify(
+updateProgress(70);
 
-"🔄 重新驗證中...",
 
-20
+updateList(
+
+"✅ ARMY 身分確認",
+
+"🔄 生日資料確認中",
+
+"⬜ 禮物資格確認"
 
 );
+
+
+
+verifyText.innerHTML=
+
+"資料重新建立中...";
 
 
 },19000);
@@ -1631,14 +1788,21 @@ setVerify(
 
 
 
+
+
 setTimeout(()=>{
 
 
-setVerify(
+updateProgress(85);
 
-"🔄 重新驗證中...",
 
-70
+updateList(
+
+"✅ ARMY 身分確認",
+
+"🔄 生日資料確認中",
+
+"🔄 禮物資格分析中"
 
 );
 
@@ -1651,19 +1815,33 @@ setVerify(
 
 
 
+
+
 setTimeout(()=>{
 
 
-setVerify(
+updateProgress(100);
+
+
+
+updateList(
 
 "✅ ARMY 身分確認",
 
-100
+"✅ 生日資料確認",
+
+"✅ 禮物資格確認"
 
 );
 
 
-},25000);
+
+verifyText.innerHTML=
+
+"💜 SYSTEM ANALYSIS COMPLETE";
+
+
+},26000);
 
 
 
@@ -1674,148 +1852,8 @@ setVerify(
 
 
 // ==========================
-// 生日驗證
+// 提醒
 // ==========================
-
-
-
-setTimeout(()=>{
-
-
-setVerify(
-
-"🎂 生日驗證中...",
-
-30
-
-);
-
-
-},29000);
-
-
-
-
-
-
-
-setTimeout(()=>{
-
-
-setVerify(
-
-"🎂 生日驗證中...",
-
-80
-
-);
-
-
-},32000);
-
-
-
-
-
-
-
-setTimeout(()=>{
-
-
-setVerify(
-
-"✅ 生日確認",
-
-100
-
-);
-
-
-},35000);
-
-
-
-
-
-
-
-
-
-
-
-// ==========================
-// 禮物資格
-// ==========================
-
-
-
-setTimeout(()=>{
-
-
-setVerify(
-
-"🎁 禮物資格確認中...",
-
-40
-
-);
-
-
-},39000);
-
-
-
-
-
-
-
-setTimeout(()=>{
-
-
-setVerify(
-
-"🎁 禮物資格確認中...",
-
-90
-
-);
-
-
-},42000);
-
-
-
-
-
-
-
-setTimeout(()=>{
-
-
-setVerify(
-
-"✅ 禮物領取資格確認",
-
-100
-
-);
-
-
-},45000);
-
-
-
-
-
-
-
-
-
-
-// ==========================
-// 系統提醒
-// ==========================
-
 
 
 setTimeout(()=>{
@@ -1824,7 +1862,7 @@ setTimeout(()=>{
 warning.style.display="block";
 
 
-},48000);
+},30000);
 
 
 
@@ -1838,7 +1876,10 @@ setTimeout(()=>{
 claim.style.display="block";
 
 
-},52000);
+},34000);
+
+
+
 
 
 
@@ -1853,13 +1894,12 @@ claim.style.display="block";
 // ==========================
 
 
-
 let clickCount=0;
 
 
 
-
 function tryClaim(){
+
 
 
 clickCount++;
@@ -1867,6 +1907,7 @@ clickCount++;
 
 
 let btn=document.getElementById("claimBtn");
+
 
 
 let notice=document.getElementById("notice");
@@ -1879,7 +1920,6 @@ let notice=document.getElementById("notice");
 if(clickCount===1){
 
 
-
 notice.innerHTML=
 
 `
@@ -1887,7 +1927,7 @@ notice.innerHTML=
 
 <br><br>
 
-🤣 禮物跑走啦！
+🤣 禮物跑掉啦！
 `;
 
 
@@ -1909,10 +1949,7 @@ btn.style.top="30%";
 
 
 
-
-
 else if(clickCount===2){
-
 
 
 notice.innerHTML=
@@ -1933,7 +1970,6 @@ btn.style.left="55%";
 btn.style.top="55%";
 
 
-
 }
 
 
@@ -1945,7 +1981,27 @@ btn.style.top="55%";
 else{
 
 
+
+notice.innerHTML=
+
+`
+🎁 捕捉成功
+
+<br><br>
+
+正在開啟秘密資料...
+`;
+
+
+
 btn.style.display="none";
+
+
+
+
+
+
+setTimeout(()=>{
 
 
 systemPage.style.display="none";
@@ -1955,6 +2011,13 @@ secretScreen.style.display="flex";
 
 
 
+},1200);
+
+
+
+
+
+
 
 
 
@@ -1963,14 +2026,24 @@ setTimeout(()=>{
 
 secretText.innerHTML=
 
-"🔐 正在解密生日禮物...";
+`
+🔐 正在解密生日禮物...
+
+<br><br>
+
+LEVEL 99 ACCESS
+
+<br>
+
+SPECIAL USER DETECTED
+`;
+
 
 
 secretBar.style.width="35%";
 
 
-},800);
-
+},2200);
 
 
 
@@ -1978,18 +2051,20 @@ secretBar.style.width="35%";
 
 
 setTimeout(()=>{
-
-
-secretText.innerHTML=
-
-"🔐 SECRET DATA ANALYSIS";
 
 
 secretBar.style.width="70%";
 
 
-},2000);
+secretText.innerHTML=
 
+`
+🔐 SECRET DATA ANALYSIS...
+`;
+
+
+
+},3500);
 
 
 
@@ -1997,6 +2072,9 @@ secretBar.style.width="70%";
 
 
 setTimeout(()=>{
+
+
+secretBar.style.width="100%";
 
 
 secretText.innerHTML=
@@ -2004,10 +2082,8 @@ secretText.innerHTML=
 "💜 ACCESS GRANTED";
 
 
-secretBar.style.width="100%";
+},5000);
 
-
-},3500);
 
 
 
@@ -2027,7 +2103,7 @@ rewardPage.style.display="block";
 window.scrollTo(0,0);
 
 
-},5000);
+},7000);
 
 
 
@@ -2036,6 +2112,7 @@ window.scrollTo(0,0);
 
 
 }
+
 
 
 </script>
