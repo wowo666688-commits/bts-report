@@ -1,82 +1,150 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
+
 <head>
+
 <meta charset="UTF-8">
+
 <title>BTS REPORT SYSTEM v1.0</title>
 
+
 <style>
+
 body {
-    background:#090014;
-    color:white;
-    font-family:"Microsoft JhengHei",sans-serif;
-    display:flex;
-    justify-content:center;
-    padding:30px;
+
+background:#090014;
+color:white;
+font-family:"Microsoft JhengHei",sans-serif;
+display:flex;
+justify-content:center;
+padding:30px;
+
 }
+
 
 .box {
-    max-width:700px;
-    width:100%;
-    background:#170b24;
-    border-radius:20px;
-    padding:30px;
-    box-shadow:0 0 30px #8b5cf6;
+
+max-width:700px;
+width:100%;
+background:#170b24;
+border-radius:20px;
+padding:30px;
+box-shadow:0 0 30px #8b5cf6;
+
 }
+
 
 .title {
-    text-align:center;
-    color:#e9d5ff;
-    font-size:28px;
+
+text-align:center;
+font-size:28px;
+color:#e9d5ff;
+
 }
+
 
 .system {
-    color:#d8b4fe;
+
+color:#d8b4fe;
+
 }
 
-.progress-box {
-    background:#333;
-    border-radius:20px;
-    overflow:hidden;
-    margin:20px 0;
-}
-
-.progress {
-    width:0%;
-    background:#a855f7;
-    text-align:center;
-    transition:2s;
-}
-
-.gift {
-    display:none;
-    text-align:center;
-    color:#f0abfc;
-    font-size:24px;
-}
-
-.final {
-    display:none;
-    color:#f9a8d4;
-}
 
 .line {
-    border-top:1px solid #9333ea;
-    margin:25px 0;
+
+border-top:1px solid #9333ea;
+margin:25px 0;
+
 }
+
+
+.progress-box {
+
+background:#333;
+border-radius:20px;
+overflow:hidden;
+margin:20px 0;
+
+}
+
+
+.progress {
+
+width:0%;
+background:#a855f7;
+text-align:center;
+transition:2s;
+
+}
+
+
+.gift {
+
+display:none;
+text-align:center;
+font-size:24px;
+color:#f0abfc;
+
+}
+
+
+.final {
+
+display:none;
+color:#f9a8d4;
+
+}
+
+
+.warning {
+
+display:none;
+text-align:center;
+color:#fde68a;
+font-size:20px;
+animation:blink 0.8s infinite;
+
+}
+
+
+@keyframes blink {
+
+0% {opacity:1;}
+50% {opacity:0.2;}
+100% {opacity:1;}
+
+}
+
+
+.reveal {
+
+display:none;
+
+}
+
+
 
 </style>
 
 </head>
 
+
 <body>
+
 
 <div class="box">
 
+
 <div class="title">
+
 🎵 BTS REPORT SYSTEM v1.0
+
 </div>
 
+
 <div class="line"></div>
+
+
 
 <div class="system" id="login">
 
@@ -87,142 +155,207 @@ body {
 </div>
 
 
+
 <div id="check" style="display:none">
+
 
 <br>
 
 ✅ ARMY 身分確認<br>
+
 ✅ 生日壽星確認<br>
+
 ✅ 禮物領取資格確認
+
 
 <br><br>
 
+
 正在載入禮物資訊...
 
+
 <div class="progress-box">
+
 <div class="progress" id="bar">
+
 0%
-</div>
+
 </div>
 
 </div>
+
+
+</div>
+
 
 
 <div class="gift" id="gift">
+
 
 🎉 恭喜你獲得：<br><br>
 
 💜 BTS 演唱會阿米棒組合 💜
 
+
 </div>
 
 
+
+<div class="warning" id="warning">
+
+⚠️ 系統提醒...<br><br>
+
+請稍後……<br><br>
+
+正在確認配送資訊...
+
+</div>
+
+
+
 <div class="final" id="final">
+</html>
+    <div class="reveal" id="reveal">
+
 
 <div class="line"></div>
 
-⚠️ 系統提醒：<br><br>
-
-阿米棒目前仍在待出貨中，<br>
-請耐心等候配送中……
-
-<br><br>
-
-目前可先領取：
-
-<br><br>
-
-✨ 阿米棒坐檯＋造型更換組合<br>
-🧸 愛心娃娃 × 1
-
-<div class="line"></div>
 
 等等……
 
+
 <br><br>
+
 
 有騙到你嗎？🤣<br>
+
 是不是有那麼一瞬間真的相信了？哈哈哈！
 
+
 <br><br>
+
 
 BTS 的阿米棒真的有夠難搶！！！！！
 
+
 <br><br>
+
 
 我整個 6 月幾乎每天都在搶你的阿米棒，真的超級難搶！
+
+
 <br><br>
+
 
 最後終於買到了，<br>
+
 但目前還不知道什麼時候會收到。
 
+
 <br><br>
+
 
 原本想說等全部到齊再一起送給你，<br>
 
 結果跟我家幽默討論後，他一直說：
 
+
 <br><br>
+
 
 「先把有的送啊！不然要等太久了！」
 
+
 <br><br>
+
 
 所以就決定先把這份送給你❤️
 
+
 <br><br>
+
 
 等阿米棒到貨之後，<br>
+
 我再補給你，
 
+
 <br><br>
+
 
 到時候你就可以帶著它去演唱會 High 啦！😎
 
+
 <br><br>
 
+
 而且還是場控版的，嘿嘿 💜
+
 
 
 <div class="line"></div>
 
 
+
 <h2 style="text-align:center;color:#f0abfc;">
+
 🎂 生日快樂！！🥳
+
 </h2>
+
 
 
 雖然是遲來的生日禮物，
 
+
 <br><br>
+
 
 但希望你收到的時候，
 
+
 <br>
+
 
 還是可以感受到滿滿的心意。
 
+
 <br><br>
+
 
 希望你會喜歡，
 
+
 <br>
+
 
 也希望我們一起期待阿米棒到貨的那一天！💜
 
+
 <br><br>
 
+
 Borahae 💜
+
+
 
 </div>
 
 
+</div>
+
+
+
 <script>
+
+
+// 登入
 
 setTimeout(function(){
 
 document.getElementById("login").innerHTML =
 "🔐 身分驗證成功...";
+
 
 document.getElementById("check").style.display="block";
 
@@ -231,46 +364,80 @@ document.getElementById("check").style.display="block";
 
 
 
+// 進度30%
+
 setTimeout(function(){
 
 document.getElementById("bar").style.width="30%";
+
 document.getElementById("bar").innerHTML="30%";
+
 
 },3000);
 
 
 
+// 進度60%
+
 setTimeout(function(){
 
 document.getElementById("bar").style.width="60%";
+
 document.getElementById("bar").innerHTML="60%";
+
 
 },5000);
 
 
 
+// 進度100%
+
 setTimeout(function(){
 
 document.getElementById("bar").style.width="100%";
+
 document.getElementById("bar").innerHTML="100%";
+
 
 },7000);
 
 
 
+// 禮物出現
+
 setTimeout(function(){
 
 document.getElementById("gift").style.display="block";
+
 
 },8500);
 
 
 
+// 系統提醒閃爍
+
 setTimeout(function(){
+
+document.getElementById("warning").style.display="block";
+
+
+},10500);
+
+
+
+// 8秒後系統提醒消失，揭曉
+
+setTimeout(function(){
+
+document.getElementById("warning").style.display="none";
 
 document.getElementById("final").style.display="block";
 
-},11000);
+document.getElementById("reveal").style.display="block";
+
+
+},18500);
+
 
 
 </script>
@@ -278,6 +445,8 @@ document.getElementById("final").style.display="block";
 
 </div>
 
+
 </body>
+
 
 </html>
