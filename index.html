@@ -9,7 +9,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 
-<title>BTS REPORT SYSTEM v3.6</title>
+<title>BTS REPORT SYSTEM v3.7</title>
 
 
 <style>
@@ -20,7 +20,6 @@
 box-sizing:border-box;
 
 }
-
 
 
 html,body{
@@ -39,19 +38,27 @@ background:
 
 radial-gradient(circle at top,#8b5cf6,#090014 85%);
 
+
 color:white;
+
 
 font-family:"Microsoft JhengHei",sans-serif;
 
+
 overflow-x:hidden;
+
 
 overflow-y:auto;
 
+
 display:flex;
+
 
 justify-content:center;
 
+
 align-items:flex-start;
+
 
 padding-top:3vh;
 
@@ -61,29 +68,37 @@ padding-top:3vh;
 
 
 
+
 .star{
+
 
 position:fixed;
 
+
 width:3px;
+
 
 height:3px;
 
+
 background:white;
+
 
 border-radius:50%;
 
+
 animation:twinkle 2s infinite;
 
+
 z-index:0;
+
 
 }
 
 
 
-
-
 @keyframes twinkle{
+
 
 50%{
 
@@ -101,7 +116,8 @@ transform:scale(2);
 
 
 
-/* 載入畫面 */
+
+/* 載入頁 */
 
 
 #loadingScreen{
@@ -109,94 +125,114 @@ transform:scale(2);
 
 position:fixed;
 
+
 inset:0;
+
 
 background:
 
 radial-gradient(circle,#581c87,#090014);
 
-display:flex;
-
-justify-content:center;
-
-align-items:center;
-
-flex-direction:column;
 
 z-index:9999;
 
+
+display:flex;
+
+
+justify-content:center;
+
+
+align-items:center;
+
+
+flex-direction:column;
+
+
 text-align:center;
 
+
 }
+
 
 
 
 
 .loading-title{
 
+
 font-size:32px;
+
 
 color:#f0abfc;
 
+
 text-shadow:0 0 25px #c084fc;
 
-}
 
+}
 
 
 
 .loading-text{
 
+
 margin-top:25px;
+
 
 font-size:18px;
 
-}
 
+}
 
 
 
 
 .loading-bar{
 
+
 width:280px;
+
 
 height:18px;
 
+
 background:#2e1065;
+
 
 border-radius:20px;
 
+
 overflow:hidden;
+
 
 margin-top:20px;
 
+
 }
+
+
 
 
 
 .loading-progress{
 
+
 height:100%;
+
 
 width:0%;
 
+
 background:
 
-linear-gradient(
+linear-gradient(90deg,#9333ea,#f0abfc);
 
-90deg,
-
-#9333ea,
-
-#f0abfc
-
-);
 
 transition:1s;
 
-}
 
+}
 
 
 
@@ -213,27 +249,38 @@ transition:1s;
 
 position:relative;
 
+
 z-index:2;
+
 
 width:94%;
 
+
 max-width:720px;
 
+
 min-height:90vh;
+
 
 background:
 
 rgba(20,8,35,.94);
 
+
 border-radius:25px;
+
 
 padding:22px;
 
+
 box-shadow:
+
 
 0 0 35px #c084fc,
 
+
 0 0 80px #7e22ce;
+
 
 margin-bottom:30px;
 
@@ -243,26 +290,38 @@ margin-bottom:30px;
 
 
 
+
+
+
 .status{
 
 
 position:absolute;
 
+
 right:12px;
+
 
 top:8px;
 
+
 font-size:11px;
+
 
 background:rgba(0,0,0,.35);
 
+
 padding:5px 10px;
+
 
 border-radius:20px;
 
+
 color:#86efac;
 
+
 animation:blink 1.5s infinite;
+
 
 }
 
@@ -279,7 +338,6 @@ opacity:.35;
 
 }
 
-
 }
 
 
@@ -291,15 +349,21 @@ opacity:.35;
 
 text-align:center;
 
+
 font-size:25px;
+
 
 color:#f0abfc;
 
+
 text-shadow:0 0 15px #c084fc;
+
 
 margin-top:12px;
 
+
 }
+
 
 
 
@@ -307,11 +371,15 @@ margin-top:12px;
 
 .line{
 
+
 border-top:1px solid #a855f7;
 
-margin:18px 0;
+
+margin:15px 0;
+
 
 }
+
 
 
 
@@ -319,11 +387,15 @@ margin:18px 0;
 
 .system{
 
-font-size:17px;
 
-line-height:1.8;
+font-size:16px;
+
+
+line-height:1.6;
+
 
 color:#e9d5ff;
+
 
 }
 
@@ -331,17 +403,25 @@ color:#e9d5ff;
 
 
 
+
+
 .progress-box{
 
-height:28px;
+
+height:25px;
+
 
 background:#2e1065;
 
+
 border-radius:20px;
+
 
 overflow:hidden;
 
-margin:18px 0;
+
+margin:15px 0;
+
 
 }
 
@@ -351,29 +431,29 @@ margin:18px 0;
 
 .progress{
 
+
 height:100%;
+
 
 width:0%;
 
+
 background:
 
-linear-gradient(
+linear-gradient(90deg,#9333ea,#f0abfc);
 
-90deg,
-
-#9333ea,
-
-#f0abfc
-
-);
 
 text-align:center;
 
-line-height:28px;
 
-font-size:13px;
+line-height:25px;
 
-transition:1.5s;
+
+font-size:12px;
+
+
+transition:1s;
+
 
 }
 
@@ -384,17 +464,31 @@ transition:1.5s;
 
 .warning{
 
+
 display:none;
+
 
 text-align:center;
 
-font-size:19px;
+
+font-size:17px;
+
+
+line-height:1.5;
+
 
 color:#fde68a;
 
+
 animation:blink .8s infinite;
 
+
+padding:10px;
+
+
 }
+
+
 
 
 
@@ -402,11 +496,15 @@ animation:blink .8s infinite;
 
 .claim{
 
+
 display:none;
+
 
 text-align:center;
 
+
 }
+
 
 
 
@@ -414,13 +512,18 @@ text-align:center;
 
 .notice{
 
-font-size:21px;
+
+font-size:20px;
+
 
 font-weight:bold;
 
+
 color:#f9a8d4;
 
+
 }
+
 
 
 
@@ -431,23 +534,26 @@ color:#f9a8d4;
 
 background:#a855f7;
 
+
 color:white;
+
 
 border:none;
 
-padding:14px 30px;
 
-font-size:18px;
+padding:13px 28px;
+
+
+font-size:17px;
+
 
 border-radius:30px;
 
-box-shadow:
 
-0 0 25px #c084fc;
+box-shadow:0 0 25px #c084fc;
 
-min-width:210px;
 
-max-width:80%;
+min-width:200px;
 
 
 }
@@ -456,7 +562,8 @@ max-width:80%;
 
 
 
-/* SECRET 解密頁 */
+
+/* SECRET */
 
 
 .secret-screen{
@@ -464,25 +571,35 @@ max-width:80%;
 
 position:fixed;
 
+
 inset:0;
+
 
 background:
 
 radial-gradient(circle,#581c87,#090014);
 
-z-index:9998;
 
 display:none;
 
+
+z-index:9998;
+
+
 justify-content:center;
+
 
 align-items:center;
 
+
 flex-direction:column;
+
 
 text-align:center;
 
+
 }
+
 
 
 
@@ -491,11 +608,16 @@ text-align:center;
 
 font-size:30px;
 
+
 color:#f0abfc;
+
 
 text-shadow:0 0 25px #c084fc;
 
+
 }
+
+
 
 
 
@@ -504,9 +626,13 @@ text-shadow:0 0 25px #c084fc;
 
 margin-top:25px;
 
+
 font-size:18px;
 
+
 }
+
+
 
 
 
@@ -515,17 +641,24 @@ font-size:18px;
 
 width:280px;
 
-height:20px;
+
+height:18px;
+
 
 background:#2e1065;
 
+
 border-radius:20px;
+
 
 overflow:hidden;
 
+
 margin-top:25px;
 
+
 }
+
 
 
 
@@ -534,22 +667,17 @@ margin-top:25px;
 
 height:100%;
 
+
 width:0%;
+
 
 background:
 
-linear-gradient(
-
-90deg,
-
-#9333ea,
-
-#f0abfc
-
-);
+linear-gradient(90deg,#9333ea,#f0abfc);
 
 
 transition:1s;
+
 
 }
 
@@ -568,19 +696,81 @@ transition:1s;
 
 display:none;
 
-z-index:3;
+
+position:relative;
+
+
+z-index:5;
+
+
+width:94%;
+
+
+max-width:720px;
+
+
+min-height:100vh;
+
+
+margin:0 auto 40px;
+
+
+background:
+
+rgba(20,8,35,.94);
+
+
+border-radius:25px;
+
+
+padding:25px;
+
 
 font-size:17px;
 
+
 line-height:1.9;
+
 
 color:#f9a8d4;
 
+
 text-align:center;
 
-padding-bottom:50px;
+
+box-shadow:0 0 35px #c084fc;
+
+
+animation:fadeIn 1.5s;
+
 
 }
+
+
+
+
+@keyframes fadeIn{
+
+
+from{
+
+opacity:0;
+
+transform:translateY(30px);
+
+}
+
+
+to{
+
+opacity:1;
+
+transform:none;
+
+}
+
+}
+
 
 
 
@@ -590,14 +780,14 @@ padding-bottom:50px;
 
 font-size:30px;
 
+
 color:#f0abfc;
 
-text-shadow:
 
-0 0 20px #c084fc;
+text-shadow:0 0 20px #c084fc;
+
 
 }
-
 
 
 
@@ -608,33 +798,30 @@ text-shadow:
 
 .box{
 
+
 width:96%;
+
 
 padding:18px;
 
-}
 
+}
 
 
 .title{
 
+
 font-size:22px;
 
-}
 
+}
 
 
 .system{
 
+
 font-size:15px;
 
-}
-
-
-
-.loading-title{
-
-font-size:26px;
 
 }
 
@@ -642,14 +829,14 @@ font-size:26px;
 
 .reward-page{
 
+
 font-size:16px;
 
-}
-
-
 
 }
 
+
+}
 
 
 
@@ -698,7 +885,11 @@ document.body.appendChild(star);
 
 
 
-<!-- 系統載入 -->
+
+
+
+<!-- 載入畫面 -->
+
 
 <div id="loadingScreen">
 
@@ -710,6 +901,7 @@ document.body.appendChild(star);
 
 
 </div>
+
 
 
 
@@ -745,13 +937,16 @@ document.body.appendChild(star);
 
 
 
-<!-- 主系統 -->
+
+<!-- 系統頁 -->
 
 
 <div class="box" id="systemBox">
 
 
+
 <div id="systemPage">
+
 
 
 <div class="status">
@@ -760,7 +955,13 @@ document.body.appendChild(star);
 🟢 SYSTEM ONLINE
 
 
+<br>
+
+<span id="systemTime"></span>
+
+
 </div>
+
 
 
 
@@ -769,10 +970,11 @@ document.body.appendChild(star);
 <div class="title">
 
 
-🎵 BTS REPORT SYSTEM v3.6
+🎵 BTS REPORT SYSTEM v3.7
 
 
 </div>
+
 
 
 
@@ -784,14 +986,17 @@ document.body.appendChild(star);
 
 
 
+
 <div class="system">
+
+
 
 
 
 <div id="login">
 
 
-🔐 正在登入 BTS 系統...
+🔐 登入 BTS 系統...
 
 
 <br><br>
@@ -808,8 +1013,8 @@ document.body.appendChild(star);
 
 
 
-
 <div id="verifyArea" style="display:none;">
+
 
 
 <div id="verifyText">
@@ -842,27 +1047,26 @@ document.body.appendChild(star);
 
 
 
+
 <div class="warning" id="warning">
 
 
-⚠️ 系統提醒...
+⚠️ 系統提醒
 
 
-
-<br><br>
-
+<div style="margin-top:10px;">
 
 
 阿米棒目前仍在待出貨中
 
 
-
-<br><br>
-
+<br>
 
 
 請耐心等候配送中……
 
+
+</div>
 
 
 </div>
@@ -877,7 +1081,9 @@ document.body.appendChild(star);
 <div class="claim" id="claim">
 
 
+
 <div class="line"></div>
+
 
 
 
@@ -885,7 +1091,10 @@ document.body.appendChild(star);
 
 
 
+
 <br><br>
+
+
 
 
 
@@ -899,6 +1108,7 @@ document.body.appendChild(star);
 
 
 
+
 <br>
 
 
@@ -906,23 +1116,14 @@ document.body.appendChild(star);
 <button id="claimBtn" onclick="tryClaim()">
 
 
+
 🎁 領取我的禮物
+
 
 
 </button>
 
 
-</div>
-
-
-
-
-
-</div>
-
-
-</div>
-
 
 </div>
 
@@ -930,10 +1131,25 @@ document.body.appendChild(star);
 
 
 
+</div>
+
+
+</div>
+
+
+</div>
 
 
 
-<!-- SECRET 解密畫面 -->
+
+
+
+
+
+
+
+
+<!-- SECRET 解密 -->
 
 
 <div class="secret-screen" id="secretScreen">
@@ -956,7 +1172,6 @@ document.body.appendChild(star);
 
 
 </div>
-
 
 
 
@@ -983,10 +1198,13 @@ document.body.appendChild(star);
 
 
 
-<!-- 最後揭曉 -->
 
 
-<div class="box reward-page" id="rewardPage">
+<!-- 最終生日頁 -->
+
+
+
+<div class="reward-page" id="rewardPage">
 
 
 
@@ -1000,7 +1218,10 @@ document.body.appendChild(star);
 
 
 
+
+
 <div class="line"></div>
+
 
 
 
@@ -1070,6 +1291,7 @@ document.body.appendChild(star);
 
 
 
+
 BTS 的阿米棒真的有夠難搶！！！！！
 
 
@@ -1078,11 +1300,13 @@ BTS 的阿米棒真的有夠難搶！！！！！
 
 
 
+
 我整個 6 月幾乎每天都在搶你的阿米棒，真的超級難搶！
 
 
 
 <br><br>
+
 
 
 
@@ -1103,6 +1327,8 @@ BTS 的阿米棒真的有夠難搶！！！！！
 
 
 
+
+
 原本想說等全部到齊再一起送給你，
 
 
@@ -1119,11 +1345,13 @@ BTS 的阿米棒真的有夠難搶！！！！！
 
 
 
+
 「先把有的送啊！不然要等太久了！」
 
 
 
 <br><br>
+
 
 
 
@@ -1136,6 +1364,8 @@ BTS 的阿米棒真的有夠難搶！！！！！
 
 
 
+
+
 等阿米棒到貨之後，我再補給你。
 
 
@@ -1144,20 +1374,11 @@ BTS 的阿米棒真的有夠難搶！！！！！
 
 
 
-到時候你就可以帶著它去演唱會 High 啦！
-
-
-
-<br>
-
-
-
-而且還是場控版的，嘿嘿 😎
+到時候你就可以帶著它去演唱會 High 啦！😎
 
 
 
 <br><br>
-
 
 
 
@@ -1181,11 +1402,13 @@ BTS 的阿米棒真的有夠難搶！！！！！
 
 
 
+
 雖然是遲來的生日禮物，
 
 
 
 <br><br>
+
 
 
 
@@ -1205,6 +1428,7 @@ BTS 的阿米棒真的有夠難搶！！！！！
 
 
 
+
 希望你會喜歡，
 
 
@@ -1221,7 +1445,10 @@ BTS 的阿米棒真的有夠難搶！！！！！
 
 
 
+
 Borahae 💜
+
+
 
 
 
@@ -1230,14 +1457,43 @@ Borahae 💜
 <script>
 
 
-// ===============================
-// 載入流程
-// ===============================
+// ==========================
+// 系統時間
+// ==========================
+
+
+setInterval(()=>{
+
+
+let now=new Date();
+
+
+systemTime.innerHTML=
+
+now.toLocaleTimeString();
+
+
+},1000);
+
+
+
+
+
+
+
+
+
+// ==========================
+// 載入動畫
+// ==========================
+
 
 
 setTimeout(()=>{
 
-loadingBar.style.width="20%";
+
+loadingBar.style.width="25%";
+
 
 loadingText.innerHTML=
 
@@ -1249,9 +1505,13 @@ loadingText.innerHTML=
 
 
 
+
+
 setTimeout(()=>{
 
-loadingBar.style.width="45%";
+
+loadingBar.style.width="50%";
+
 
 loadingText.innerHTML=
 
@@ -1263,9 +1523,13 @@ loadingText.innerHTML=
 
 
 
+
+
 setTimeout(()=>{
 
-loadingBar.style.width="70%";
+
+loadingBar.style.width="75%";
+
 
 loadingText.innerHTML=
 
@@ -1277,13 +1541,17 @@ loadingText.innerHTML=
 
 
 
+
+
 setTimeout(()=>{
 
-loadingBar.style.width="90%";
+
+loadingBar.style.width="100%";
+
 
 loadingText.innerHTML=
 
-"🎁 正在準備神秘禮物...";
+"✨ SYSTEM READY ✨";
 
 
 },7500);
@@ -1292,13 +1560,11 @@ loadingText.innerHTML=
 
 
 
+
 setTimeout(()=>{
 
-loadingBar.style.width="100%";
 
-loadingText.innerHTML=
-
-"✨ SYSTEM READY ✨";
+loadingScreen.style.display="none";
 
 
 },9500);
@@ -1307,25 +1573,15 @@ loadingText.innerHTML=
 
 
 
-setTimeout(()=>{
-
-loadingScreen.style.display="none";
-
-
-},11000);
 
 
 
 
 
 
-
-
-
-// ===============================
-// 驗證流程
-// ===============================
-
+// ==========================
+// 登入
+// ==========================
 
 
 setTimeout(()=>{
@@ -1347,12 +1603,19 @@ login.innerHTML=
 
 
 
-},12000);
+},11000);
 
 
 
 
 
+
+
+
+
+// ==========================
+// 驗證流程
+// ==========================
 
 
 
@@ -1372,10 +1635,75 @@ verifyText.innerHTML=
 
 verifyBar.style.width="40%";
 
+
 verifyBar.innerHTML="40%";
 
 
-},15000);
+},14000);
+
+
+
+
+
+
+
+// 故障彩蛋
+
+
+setTimeout(()=>{
+
+
+verifyText.innerHTML=
+
+`
+⚠️ 驗證異常
+
+<br><br>
+
+偵測到生日資料過於珍貴
+
+<br><br>
+
+🔄 重新建立驗證程序...
+`;
+
+
+
+verifyBar.style.width="70%";
+
+
+verifyBar.innerHTML="70%";
+
+
+},18000);
+
+
+
+
+
+
+
+// 重新驗證
+
+
+setTimeout(()=>{
+
+
+verifyText.innerHTML=
+
+`
+🔄 第二次驗證中...
+`;
+
+
+
+verifyBar.style.width="85%";
+
+
+verifyBar.innerHTML="85%";
+
+
+},22000);
 
 
 
@@ -1394,17 +1722,22 @@ verifyText.innerHTML=
 
 
 
-verifyBar.style.width="60%";
-
-verifyBar.innerHTML="60%";
+verifyBar.style.width="100%";
 
 
-},19000);
+verifyBar.innerHTML="100%";
+
+
+},26000);
 
 
 
 
 
+
+
+
+// 生日驗證
 
 
 setTimeout(()=>{
@@ -1418,12 +1751,13 @@ verifyText.innerHTML=
 
 
 
-verifyBar.style.width="75%";
-
-verifyBar.innerHTML="75%";
+verifyBar.style.width="60%";
 
 
-},23000);
+verifyBar.innerHTML="60%";
+
+
+},30000);
 
 
 
@@ -1442,18 +1776,22 @@ verifyText.innerHTML=
 
 
 
-verifyBar.style.width="85%";
-
-verifyBar.innerHTML="85%";
+verifyBar.style.width="100%";
 
 
-},27000);
+verifyBar.innerHTML="100%";
 
 
-
+},34000);
 
 
 
+
+
+
+
+
+// 禮物資格
 
 
 setTimeout(()=>{
@@ -1467,14 +1805,13 @@ verifyText.innerHTML=
 
 
 
-verifyBar.style.width="95%";
-
-verifyBar.innerHTML="95%";
+verifyBar.style.width="70%";
 
 
-},31000);
+verifyBar.innerHTML="70%";
 
 
+},38000);
 
 
 
@@ -1495,10 +1832,11 @@ verifyText.innerHTML=
 
 verifyBar.style.width="100%";
 
+
 verifyBar.innerHTML="100%";
 
 
-},35000);
+},42000);
 
 
 
@@ -1508,11 +1846,7 @@ verifyBar.innerHTML="100%";
 
 
 
-
-// ===============================
 // 系統提醒
-// ===============================
-
 
 
 setTimeout(()=>{
@@ -1521,7 +1855,7 @@ setTimeout(()=>{
 warning.style.display="block";
 
 
-},39000);
+},46000);
 
 
 
@@ -1535,7 +1869,7 @@ setTimeout(()=>{
 claim.style.display="block";
 
 
-},43000);
+},50000);
 
 
 
@@ -1545,13 +1879,17 @@ claim.style.display="block";
 
 
 
-// ===============================
-// 禮物按鈕彩蛋
-// ===============================
+
+
+
+// ==========================
+// 禮物按鈕
+// ==========================
 
 
 
 let clickCount=0;
+
 
 
 
@@ -1570,7 +1908,10 @@ let notice=document.getElementById("notice");
 
 
 
+
+
 if(clickCount===1){
+
 
 
 notice.innerHTML=
@@ -1580,7 +1921,7 @@ notice.innerHTML=
 
 <br><br>
 
-禮物重新定位中...
+禮物定位失敗...
 
 <br><br>
 
@@ -1607,7 +1948,9 @@ btn.style.top="15%";
 
 
 
+
 else if(clickCount===2){
+
 
 
 notice.innerHTML=
@@ -1632,7 +1975,9 @@ btn.style.left="80%";
 btn.style.top="80%";
 
 
+
 }
+
 
 
 
@@ -1644,14 +1989,16 @@ btn.style.top="80%";
 else{
 
 
-btn.style.display="none";
 
+btn.style.display="none";
 
 
 systemPage.style.display="none";
 
 
 secretScreen.style.display="flex";
+
+
 
 
 
@@ -1664,7 +2011,7 @@ secretText.innerHTML=
 "🔐 正在解密生日禮物...";
 
 
-secretBar.style.width="40%";
+secretBar.style.width="35%";
 
 
 },800);
@@ -1679,7 +2026,7 @@ setTimeout(()=>{
 
 secretText.innerHTML=
 
-"🔐 資料分析中...";
+"🔐 SECRET DATA ANALYSIS...";
 
 
 secretBar.style.width="70%";
@@ -1698,30 +2045,13 @@ setTimeout(()=>{
 
 secretText.innerHTML=
 
-"💜 資料確認完成";
+"💜 ACCESS GRANTED";
 
 
 secretBar.style.width="100%";
 
 
-},3000);
-
-
-
-
-
-
-
-setTimeout(()=>{
-
-
-secretText.innerHTML=
-
-"💜 ACCESS GRANTED";
-
-
-},4000);
-
+},3200);
 
 
 
@@ -1737,20 +2067,25 @@ secretScreen.style.display="none";
 rewardPage.style.display="block";
 
 
-window.scrollTo(0,0);
+window.scrollTo({
 
+top:0,
+
+behavior:"smooth"
+
+});
 
 
 },5000);
 
 
 
-}
-
-
 
 }
 
+
+
+}
 
 
 </script>
